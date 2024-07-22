@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1721290329 source:d:\programming\programming_project\run_run_run\run_run_run\main.cpp
+1721620182 source:d:\programming\programming_project\run_run_run\run_run_run\main.cpp
 	<iostream>
 	<SDL.h>
 	"Game.hpp"
@@ -398,7 +398,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1721290539 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
+1721622231 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
 	<SDL.h>
 	<windows.h>
 	<vector>
@@ -406,8 +406,9 @@
 	<fstream>
 	<iostream>
 
-1721291747 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
+1721622042 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
 	"Game.hpp"
+	"GameWindow.hpp"
 	<iostream>
 	<SDL_image.h>
 
@@ -416,4 +417,20 @@
 	"SDL_version.h"
 	"begin_code.h"
 	"close_code.h"
+
+1721619980 source:d:\programming\programming_project\run_run_run\run_run_run\timer.cpp
+	"Timer.hpp"
+
+1721619963 d:\programming\programming_project\run_run_run\run_run_run\timer.hpp
+	"Game.hpp"
+
+1721622126 d:\programming\programming_project\run_run_run\run_run_run\gamewindow.hpp
+	<windows.h>
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"Game.hpp"
 

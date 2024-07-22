@@ -1,10 +1,21 @@
 #pragma once
 
+#include <windows.h>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <SDL.h>
+#include <SDL_image.h>
+
 #include "Game.hpp"
 
 class GameWindow
 {
 public:
+    SDL_Window* gWindow = NULL;
+    SDL_Renderer* gRenderer = NULL;
+
     GameWindow();
     ~GameWindow();
 
@@ -16,6 +27,7 @@ public:
     virtual bool loadIMG(std::string path, SDL_Renderer* screen);
     void render(SDL_Renderer* renderer, const SDL_Rect* clip = NULL);
     void free();
+    bool init();
 
 
 protected:

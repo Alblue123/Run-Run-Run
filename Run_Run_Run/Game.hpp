@@ -7,14 +7,17 @@
 #include <fstream>
 #include <iostream>
 
-static SDL_Window* gWindow = NULL;
-static SDL_Renderer* gRenderer = NULL;
-static SDL_Event e;
 
 //Screen
 const int FPS = 30;
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 512;
 const int gPixelBit = 32;
+
+//color
+
+const int COLOR_KEY_R = 171;
+const int COLOR_KEY_G = 173;
+const int COLOR_KEY_B = 171;
 
 void start();
