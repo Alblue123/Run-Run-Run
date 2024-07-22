@@ -51,3 +51,7 @@ bool init()
     }
     return isRunning;
 }
+
+void start() {
+
+}
