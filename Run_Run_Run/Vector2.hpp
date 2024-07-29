@@ -14,4 +14,7 @@ class Vector2:
      void add(float x, float y);
      void mul(float f);
      Vector2 mul_N(float f);
+     Vector2 Lerp(Vector2 start, Vector2 end, float t);
+     float Lerp(float start, float end, float t);
+
 };
