@@ -3,7 +3,7 @@
 #include <SDL.h>
 #include "GameWindow.hpp"
 
-class Image:
+class Image
 {
 public:
     Image(GameWindow* mWin);

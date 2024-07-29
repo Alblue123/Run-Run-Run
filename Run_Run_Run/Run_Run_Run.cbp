@@ -42,6 +42,10 @@
 		</Linker>
 		<Unit filename="Game.cpp" />
 		<Unit filename="Game.hpp" />
+		<Unit filename="GameWindow.cpp" />
+		<Unit filename="GameWindow.hpp" />
+		<Unit filename="TImer.cpp" />
+		<Unit filename="Timer.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

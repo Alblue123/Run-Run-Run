@@ -398,7 +398,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1721622231 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
+1722230188 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
 	<SDL.h>
 	<windows.h>
 	<vector>
@@ -433,4 +433,9 @@
 	<SDL.h>
 	<SDL_image.h>
 	"Game.hpp"
+
+1721622126 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
+	"GameWindow.hpp"
+
+1722224259 source:d:\programming\programming_project\run_run_run\run_run_run\background.cpp
 

@@ -1,10 +1,10 @@
 #pragma once
 
-class Vector2:
+class Vector2
 {
  public:
      float x, y;
-     Vector2()
+     Vector2();
      ~Vecotr2();
 
      Vector2(loat x, float y);
