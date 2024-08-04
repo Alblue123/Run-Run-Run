@@ -5,7 +5,6 @@
 #include <SDL_image.h>
 
 GameWindow* gWin = new GameWindow();
-Timer frameTime;
 
 enum Menu{
 	PLAYGAME,
@@ -16,6 +15,7 @@ enum Menu{
 
 void start() {
     gWin->init();
+    int type = PLAYGAME;
 
 
 

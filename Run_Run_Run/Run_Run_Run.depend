@@ -398,10 +398,12 @@
 	"begin_code.h"
 	"close_code.h"
 
-1722230188 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
+1722799899 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
 	<SDL.h>
+	<SDL_image.h>
 	<windows.h>
 	<vector>
+	<utility>
 	<string>
 	<fstream>
 	<iostream>
@@ -424,7 +426,7 @@
 1721619963 d:\programming\programming_project\run_run_run\run_run_run\timer.hpp
 	"Game.hpp"
 
-1721622126 d:\programming\programming_project\run_run_run\run_run_run\gamewindow.hpp
+1722774024 d:\programming\programming_project\run_run_run\run_run_run\gamewindow.hpp
 	<windows.h>
 	<vector>
 	<string>

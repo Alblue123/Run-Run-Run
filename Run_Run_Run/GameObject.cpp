@@ -16,7 +16,7 @@ void GameObject::movePos(std::pair<int, int> pos) {
     rect.y += pos.second;
 }
 
-bool GameObject::loadIMG(std::string path, SDL_Renderer* screen)
+bool GameObject::loadIMG(std::string path)
 {
     free(); //free pre-existed objects
 
@@ -30,7 +30,7 @@ bool GameObject::loadIMG(std::string path, SDL_Renderer* screen)
     else
     {
         SDL_SetColorKey(loadSurface, SDL_TRUE, SDL_MapRGB(loadSurface->format, COLOR_KEY_R, COLOR_KEY_G, COLOR_KEY_B));
-        newTexture = SDL_CreateTextureFromSurface(screen, loadSurface);
+        newTexture = SDL_CreateTextureFromSurface(renderer, loadSurface);
         if (newTexture == NULL)
         {
             std::cout << "Unable to create texture from: " << path << ", " << SDL_GetError() << std::endl;
@@ -47,7 +47,7 @@ bool GameObject::loadIMG(std::string path, SDL_Renderer* screen)
     return mTexture != NULL;
 }
 
-void GameObject::render(SDL_Renderer* renderer, bool flip, SDL_Rect* clip, double angle, SDL_Point* center){
+void GameObject::render(bool flip, SDL_Rect* clip, double angle, SDL_Point* center){
 	if (flip){
 		SDL_RenderCopyEx(renderer, mTexture, clip, &rect, angle, center, SDL_FLIP_HORIZONTAL);
 	}

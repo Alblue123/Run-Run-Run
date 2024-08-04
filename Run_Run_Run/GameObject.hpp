@@ -12,12 +12,11 @@ public:
     void movePos(std::pair<int, int> pos);
     SDL_Rect getRect() const { return rect; }
     SDL_Texture* GetObject() const { return mTexture; }
-    std::pair<int, int> getPos() const; { return {rect.x, rect.y} }
-	std::pair<int, int> getSize() const; { return {rect.w, rect.h} }
+    std::pair<int, int> getPos() const { return {rect.x, rect.y}; }
+	std::pair<int, int> getSize() const { return {rect.w, rect.h}; }
 
-    virtual bool loadIMG(std::string path, SDL_Renderer* screen);
-    void render(SDL_Renderer* renderer, bool flip = 0,
-                 SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL);
+    virtual bool loadIMG(std::string path);
+    void render(bool flip = 0, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL);
     void free();
 
 
