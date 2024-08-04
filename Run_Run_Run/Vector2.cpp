@@ -42,14 +42,6 @@ Vector2 Vector2::mul_N(float f) {
 	return ret;
 }
 
-Vector2 Vector2::Lerp(Vector2 start, Vector2 end, float t) {
-	if(t<=0) return start;
-	if(t>=1) return end;
-	end.sub(start);
-	end.mul(t);
-	end.add(start);
-	return end;
-}
 
 float Vector2::Lerp(float start, float end, float t) {
 	if(t<=0) return start;

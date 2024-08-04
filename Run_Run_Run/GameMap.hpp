@@ -5,7 +5,7 @@
 
 #include "GameObject.hpp"
 
-class GameMap:
+class GameMap
 {
 public:
     GameMap();

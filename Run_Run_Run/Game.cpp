@@ -5,6 +5,8 @@
 #include <SDL_image.h>
 
 GameWindow* gWin = new GameWindow();
+SDL_Window* window;
+SDL_Renderer* renderer;
 
 enum Menu{
 	PLAYGAME,
@@ -16,7 +18,5 @@ enum Menu{
 void start() {
     gWin->init();
     int type = PLAYGAME;
-
-
 
 }

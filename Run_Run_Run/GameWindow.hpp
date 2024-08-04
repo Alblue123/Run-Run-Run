@@ -20,12 +20,10 @@ public:
     void render();
     void free();
     bool init();
-    bool isRunning() {
-        return isRunning;
-    }
+    bool getRunning();
 
 
 private:
-    bool isRunning = false;
+    bool checkRunning;
 
 };

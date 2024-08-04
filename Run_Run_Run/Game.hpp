@@ -15,14 +15,12 @@ const int FPS = 30;
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 512;
 const int gPixelBit = 32;
-int GROUND_WIDTH = 50;
-int GROUND_HEIGHT = 50;
 //color
 
 const int COLOR_KEY_R = 171;
 const int COLOR_KEY_G = 173;
 const int COLOR_KEY_B = 171;
 
-extern SDL_Window* screen;
+extern SDL_Window* window;
 extern SDL_Renderer* renderer;
 void start();
