@@ -9,6 +9,7 @@
 #include <SDL_image.h>
 
 #include "Game.hpp"
+#include "GameObject.hpp"
 
 class GameWindow
 {
@@ -20,10 +21,12 @@ public:
     void render();
     void free();
     bool init();
+    void setUp();
     bool getRunning();
 
 
 private:
     bool checkRunning;
+    GameObject* background;
 
 };

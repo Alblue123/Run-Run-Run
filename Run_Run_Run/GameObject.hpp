@@ -9,6 +9,7 @@ public:
     ~GameObject();
 
     void setRect(std::pair<int, int> pos) { rect.x = pos.first, rect.y = pos.second; }
+    void setSize(std::pair<int, int> size) { rect.w = size.first, rect.h = size.second; }
     void movePos(std::pair<int, int> pos);
     SDL_Rect getRect() const { return rect; }
     SDL_Texture* GetObject() const { return mTexture; }

@@ -408,7 +408,7 @@
 	<fstream>
 	<iostream>
 
-1722774027 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
+1722802005 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
 	"Game.hpp"
 	"GameWindow.hpp"
 	<iostream>
@@ -426,7 +426,7 @@
 1721619963 d:\programming\programming_project\run_run_run\run_run_run\timer.hpp
 	"Game.hpp"
 
-1722800587 d:\programming\programming_project\run_run_run\run_run_run\gamewindow.hpp
+1722801761 d:\programming\programming_project\run_run_run\run_run_run\gamewindow.hpp
 	<windows.h>
 	<vector>
 	<string>
@@ -435,13 +435,14 @@
 	<SDL.h>
 	<SDL_image.h>
 	"Game.hpp"
+	"GameObject.hpp"
 
-1722800756 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
+1722802229 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
 	"GameWindow.hpp"
 
 1722224259 source:d:\programming\programming_project\run_run_run\run_run_run\background.cpp
 
-1722799897 source:d:\programming\programming_project\run_run_run\run_run_run\gamemap.cpp
+1722802192 source:d:\programming\programming_project\run_run_run\run_run_run\gamemap.cpp
 	"GameMap.hpp"
 
 1722800378 d:\programming\programming_project\run_run_run\run_run_run\gamemap.hpp
@@ -449,7 +450,7 @@
 	<string>
 	"GameObject.hpp"
 
-1722800050 d:\programming\programming_project\run_run_run\run_run_run\gameobject.hpp
+1722802192 d:\programming\programming_project\run_run_run\run_run_run\gameobject.hpp
 	"Game.hpp"
 
 1722799405 source:d:\programming\programming_project\run_run_run\run_run_run\gameobject.cpp

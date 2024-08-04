@@ -16,7 +16,9 @@ enum Menu{
 };
 
 void start() {
-    gWin->init();
-    int type = PLAYGAME;
+    if(gWin->init()) {
+        gWin->setUp();
+    }
+
 
 }
