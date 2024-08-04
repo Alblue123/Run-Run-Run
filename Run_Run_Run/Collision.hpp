@@ -3,10 +3,8 @@
 #include "GameObject.hpp"
 
 enum collision {
-    TOP,
-    RIGHT,
-    LEFT
-    DOWN,
+     top = 1, right = 2, left = 3, down = 4,
+    _top = -1, _right = -2, _left = -3, _down = -4,
 };
 
 class Collision
@@ -22,6 +20,4 @@ public:
     void moveObject(std::pair<int> pos);
 
     GameObject* object;
-
-
 };

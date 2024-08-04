@@ -4,9 +4,35 @@ Collision::Collision(GameObject* object) {
     this->object = object;
 }
 
-int Collision:checkCollision(GameObject* other) {
+int Collision::checkCollision(GameObject* other) {
+    std::pair<float, float> otherCenterPos = other->getCenterPos();
+    std::pair<int, int> otherSize = other->getSize();
+    std::pair<float, float> currentCenterPos = getCenterPos();
+    std::pair<int, int> thisSize = getSize();
 
+    float deltaX = otherCenterPos.first - currentCenterPos.first;
+    float deltaY = otherCenterPos.second - currentCenterPos.second;
+
+    int intersectX = 2 * abs(deltaX) - (otherSize.first + thisSize.first);
+    int intersectY = 2 * abs(deltaY) - (otherSize.second + thisSize.second);
+
+    if (intersectX < 0 && intersectY < 0) {
+        if (intersectX > intersectY) {
+            return deltaX > 0.0f ? collision::right : collision::left;
+        } else {
+            return deltaY > 0.0f ? collision::down : collision::top;
+        }
+    } else if (intersectX <= 0 && intersectY <= 0) {
+        if (intersectX > intersectY) {
+            return deltaX > 0.0f ? collision::_right : collision::_left;
+        } else {
+            return deltaY > 0.0f ? collision::_down : collision::_top;
+        }
+    }
+
+    return 0;
 }
+
 
 std::pair<float, float> Collision::getCenterPos() {
     return {(float) object->getPosition().first + object->getSize().first/2,
