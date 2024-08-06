@@ -398,7 +398,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1722800967 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
+1722835578 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
 	<SDL.h>
 	<SDL_image.h>
 	<windows.h>
@@ -407,12 +407,13 @@
 	<string>
 	<fstream>
 	<iostream>
+	<algorithm>
+	<ctime>
+	"Timer.hpp"
 
-1722802005 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
+1722835831 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
 	"Game.hpp"
 	"GameWindow.hpp"
-	<iostream>
-	<SDL_image.h>
 
 1704144973 c:\mingw_dev_lib\sdl_image\x86_64-w64-mingw32\include\sdl2\sdl_image.h
 	"SDL.h"
@@ -437,12 +438,12 @@
 	"Game.hpp"
 	"GameObject.hpp"
 
-1722802229 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
+1722888434 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
 	"GameWindow.hpp"
 
 1722224259 source:d:\programming\programming_project\run_run_run\run_run_run\background.cpp
 
-1722802192 source:d:\programming\programming_project\run_run_run\run_run_run\gamemap.cpp
+1722885173 source:d:\programming\programming_project\run_run_run\run_run_run\gamemap.cpp
 	"GameMap.hpp"
 
 1722800378 d:\programming\programming_project\run_run_run\run_run_run\gamemap.hpp
@@ -450,10 +451,10 @@
 	<string>
 	"GameObject.hpp"
 
-1722802192 d:\programming\programming_project\run_run_run\run_run_run\gameobject.hpp
+1722888518 d:\programming\programming_project\run_run_run\run_run_run\gameobject.hpp
 	"Game.hpp"
 
-1722799405 source:d:\programming\programming_project\run_run_run\run_run_run\gameobject.cpp
+1722835983 source:d:\programming\programming_project\run_run_run\run_run_run\gameobject.cpp
 	"GameObject.hpp"
 
 1722800562 source:d:\programming\programming_project\run_run_run\run_run_run\collision.cpp

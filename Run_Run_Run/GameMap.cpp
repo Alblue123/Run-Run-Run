@@ -15,7 +15,7 @@ GameMap::~GameMap() {
 
 void GameMap::loadMap(std::string path) {
     background = new GameObject();
-    background->loadIMG("Resources/Textures/Background/Background1.png");
+    background->loadIMG("Data/Textures/Background/Background1.png");
     background->setRect({0, 0});
     background->setSize({SCREEN_WIDTH, SCREEN_HEIGHT});
 }

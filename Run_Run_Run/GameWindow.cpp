@@ -58,7 +58,8 @@ bool GameWindow::init() {
 
 void GameWindow::setUp() {
     background = new GameObject();
-    background->loadIMG("Resources/Textures/Background/Background1.png");
-    background->setRect({0, 0});
-    background->setSize({SCREEN_WIDTH, SCREEN_HEIGHT});
+    if (background->loadIMG("Data/Textures/Background/Background1.png")) {
+        background->setRect({0, 0});
+        background->setSize({SCREEN_WIDTH, SCREEN_HEIGHT});
+    }
 }
