@@ -1,8 +1,8 @@
 #include "GameMap.hpp"
 
 GameMap::GameMap() {
-    width = 12;
-    height = 20;
+    width = 16;
+    height = 32;
     surface = new Surface * [width];
     for (int i = 0; i < width; ++i) {
         surface[i] = new Surface[height];
@@ -29,8 +29,11 @@ void GameMap::loadMap(std::string path) {
         std::cout << "Error: Can't open map file!" << endl;
         return;
     }
+}
 
-
+void GameMap::render() {
+    renderBackground();
+    renderSurface();
 }
 
 void GameMap::renderBackground() {

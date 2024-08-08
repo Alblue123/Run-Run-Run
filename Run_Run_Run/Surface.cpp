@@ -14,4 +14,7 @@ void Surface::setSurface(const std::string& path, const std::pair<int, int>& pos
     loadIMG(path);
     setSize({32, 32});
     setRect({pos.first, pos.second});
+    if (surfaceType > 0) {
+        collision = new Collision(*this);
+    }
 }
