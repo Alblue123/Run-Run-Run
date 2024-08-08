@@ -4,6 +4,8 @@ Collision::Collision(GameObject* object) {
     this->object = object;
 }
 
+Collision::~Collision() {}
+
 int Collision::checkCollision(Collision* other) {
     std::pair<float, float> otherCenterPos = other->getCenterPos();
     std::pair<int, int> otherSize = other->getSize();

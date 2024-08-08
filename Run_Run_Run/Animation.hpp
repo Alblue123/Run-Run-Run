@@ -21,7 +21,7 @@ public:
     void setSwitchTime(Uint32 switchTime);
 
     std::pair<int, int> getFrameCount() const { return frameCount; }
-    SDL_Rect* getRect() { return box; }
+    SDL_Rect* getRect() { return &box; }
     bool getFlip() const { return flip; }
 
 private:

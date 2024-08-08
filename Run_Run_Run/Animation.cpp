@@ -3,7 +3,7 @@
 Animation::Animation(const std::string& name, std::pair<int, int> frameCount, Uint32 switchTime)
     : frameCount(frameCount), switchTime(switchTime), currFrame(0, 0), currTime(0), flip(false) {
     surface = IMG_Load(name.c_str());
-    if (loadedSurface == NULL) {
+    if (surface == NULL) {
         std::cout << "Cannot load image! SDL_image error: " << IMG_GetError() << std::endl;
     }
     box.w = surface->w / frameCount.first;
@@ -11,7 +11,7 @@ Animation::Animation(const std::string& name, std::pair<int, int> frameCount, Ui
 }
 
 Animation::~Animation() {
-    if (loadedSurface) {
+    if (surface) {
         SDL_FreeSurface(surface);
     }
 }
