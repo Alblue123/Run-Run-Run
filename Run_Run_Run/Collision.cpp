@@ -4,6 +4,10 @@ Collision::Collision(GameObject* object) {
     this->object = object;
 }
 
+Collision::Collision(GameObject& object) {
+    this->object = &object;
+}
+
 Collision::~Collision() {}
 
 int Collision::checkCollision(Collision* other) {

@@ -49,6 +49,9 @@ bool HandleEvents(bool& quitGame) {
     }
     return false;
 }
+void renderGame() {
+    gWin->render();
+}
 
 /*void renderGame() {
     if (gWin->isWinGame()) {
@@ -85,7 +88,7 @@ int play() {
             break;
         }
 
-        //renderGame(gWin);
+        renderGame();
 
         SDL_RenderPresent(renderer);
 

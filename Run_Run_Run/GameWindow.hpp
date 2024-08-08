@@ -10,6 +10,7 @@
 
 #include "Game.hpp"
 #include "GameObject.hpp"
+#include "GameMap.hpp"
 
 class GameWindow
 {
@@ -24,9 +25,13 @@ public:
     void setUp();
     bool getRunning();
 
-
+    int curMap = 1;
 private:
     bool checkRunning;
+    GameMap* mainMap;
     GameObject* background;
+    bool WIN = false;
+    bool LOOSE = false;
+
 
 };

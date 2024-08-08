@@ -3,6 +3,8 @@
 
 
 GameWindow::GameWindow() {
+    mainMap = nullptr;
+    checkRunning = false;
 }
 
 GameWindow::~GameWindow() {}
@@ -57,9 +59,16 @@ bool GameWindow::init() {
 }
 
 void GameWindow::setUp() {
+    checkRunning = true;
+    mainMap = new GameMap();
+    mainMap->loadMap("Data//Map//Map1.txt");
     background = new GameObject();
     if (background->loadIMG("Data/Textures/Background/Background1.png")) {
         background->setRect({0, 0});
         background->setSize({SCREEN_WIDTH, SCREEN_HEIGHT});
     }
+}
+
+void GameWindow::render() {
+    mainMap->render();
 }

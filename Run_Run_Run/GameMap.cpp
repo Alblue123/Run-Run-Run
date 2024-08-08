@@ -24,11 +24,23 @@ void GameMap::loadMap(std::string path) {
     background->setRect({0, 0});
     background->setSize({SCREEN_WIDTH, SCREEN_HEIGHT});
 
-    std::ifstream map_file(path.c_str);
+    std::ifstream map_file(path.c_str());
     if (map_file.fail()) {
-        std::cout << "Error: Can't open map file!" << endl;
+        std::cout << "Error: Can't open map file!" << std::endl;
         return;
     }
+    std::string surface_path = "Data//Textures//Surface//";
+    for (int i = 0; i < width; ++i) {
+        for (int j = 0; j < height; ++j) {
+            int surfaceType = 0;
+            map_file >> surfaceType;
+            if (!surfaceType) continue;
+            std::string surfaces = surface_path + std::to_string(surfaceType);
+            surfaces += ".png";
+            surface[i][j].setSurface(surfaces, {j * gPixelBit, i * gPixelBit},  surfaceType);
+        }
+    }
+    map_file.close();
 }
 
 void GameMap::render() {

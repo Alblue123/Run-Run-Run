@@ -11,6 +11,7 @@ class Collision
 {
 public:
     Collision(GameObject* object);
+    Collision(GameObject& object);
     ~Collision();
 
     int checkCollision(Collision* other);
