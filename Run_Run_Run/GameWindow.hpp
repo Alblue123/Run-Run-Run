@@ -22,6 +22,7 @@ public:
     void render();
     void free();
     bool init();
+    void update(const Uint32& deltaTime);
     void setUp();
     bool getRunning();
 
