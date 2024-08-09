@@ -1,6 +1,8 @@
 #pragma once
 
 #include "GameObject.hpp"
+#include <cmath>
+#include <algorithm>
 
 enum collision {
      top = 1, right = 2, left = 3, down = 4,
@@ -14,6 +16,7 @@ public:
     Collision(GameObject& object);
     ~Collision();
 
+    int checkCollision(Collision* other, float push);
     int checkCollision(Collision* other);
     std::pair<float, float> getCenterPos();
     std::pair<int, int> getPos();

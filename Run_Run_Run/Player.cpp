@@ -1,21 +1,20 @@
 #include "Player.hpp"
 
-Player::Player(Player(std::pair<int, int> pos, const bool& face))
-    : posStart(pos),
+Player::Player(std::pair<int, int> pos, const bool& face)
+    :
       faceRight(face),
+      posStart(pos),
       face_Right(face)
 {
 
-    animation = new Animation("Data//Textures//Player/player_ani.png", {6, 8}, 100);
+    animation = new Animation("Data//Textures//Player//player_ani.png", {6, 8}, 100);
     animation->currFrame = {6, 0};
 
-
     setSize({40, 40});
-    setPos(pos);
+    setRect(pos);
 
     collision = new Collision(*this);
-
-    player.loadIMG("Data//Textures//Player/player_ani.png");
+    player.loadIMG("Data//Textures//Player//player_ani.png");
     player.setSize({40, 40});
     player.setRect(getPos());
 }
@@ -44,9 +43,68 @@ void Player::updateAnimation(const Uint32& deltaTime) {
     updateMove(deltaTime);
 }
 
-
 void Player::render(){
     player.render(animation->getFlip(), animation->getRect());
+}
+
+void Player::update(const Uint32& deltaTime) {
+    posOld = getPos();
+    player.setRect(posOld);
+
+    /*if (moveQuick > 0) {
+        HandleQuickMove();
+    }*/
+    handleInput(deltaTime);
+    if (!canJump) {
+        applyGravity(deltaTime);
+    }
+
+    updateAnimation(deltaTime);
+
+    resetState();
+
+    if (shouldMovePlayer()) {
+        movePlayer(deltaTime);
+    }
+}
+
+void Player::handleInput(const Uint32& deltaTime) {
+    const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
+
+    vel.first = 0;
+    if (currentKeyStates[SDL_SCANCODE_RIGHT]) {
+        vel.first += speed;
+    }
+    if (currentKeyStates[SDL_SCANCODE_LEFT]) {
+        vel.first -= speed;
+    }
+    if (currentKeyStates[SDL_SCANCODE_SPACE] && canJump) {
+        jump();
+    }
+}
+
+void Player::jump() {
+    vel.second = -sqrt(2.0f * 981.0f * jumHeight);
+    canJump = false;
+}
+
+void Player::applyGravity(const Uint32& deltaTime) {
+    vel.second += 981.0f * static_cast<float>(deltaTime) / 1000;
+}
+
+void Player::resetState() {
+    canJump = false;
+    animation->update(0, faceRight);
+}
+
+bool Player::shouldMovePlayer() const {
+    return !start && !end;
+}
+
+void Player::movePlayer(const Uint32& deltaTime) {
+    movePos({static_cast<int>(vel.first * deltaTime / 1000),
+          static_cast<int>(vel.second * deltaTime / 1000)});
+    player.setRect(getPos());
 }
 
 bool Player::updateStart(const Uint32& deltaTime) {
@@ -109,14 +167,14 @@ void Player::updateMove(const Uint32& deltaTime) {
     }
 }
 
-void Player::Reset() {
-    animation->currentFrame = {6, 0};
+void Player::reset() {
+    animation->currFrame = {6, 0};
     start = true;
     end = false;
     deletePlayer = false;
     canJump = false;
 
-    setPos(posStart);
+    setRect(posStart);
     faceRight = face_Right;
 }
 
