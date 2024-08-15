@@ -60,6 +60,9 @@ bool GameWindow::init() {
 
 void GameWindow::setUp() {
     checkRunning = true;
+    _totalHearts = 3;
+    totalCherry = 0;
+
     mainMap = new GameMap();
     mainMap->loadMap("Data//Map//Map1.txt");
     background = new GameObject();
@@ -68,6 +71,37 @@ void GameWindow::setUp() {
         background->setSize({SCREEN_WIDTH, SCREEN_HEIGHT});
     }
 
+
+    loose = new GameObject();
+    loose->loadFromRenderedText("YOU LOSE!!!", {255, 0, 0});
+    loose->setRect({410, 100});
+
+    win = new GameObject();
+    win->loadFromRenderedText("YOU WON!!!", {124, 252, 0});
+    win->setRect({425, 100});
+
+    gPause = new GameObject();
+    gPause->loadFromRenderedText("GAME PAUSED!!!", {255, 255, 255});
+    gPause->setRect({350, 100});
+
+    std::string fontPath = "Data//Fonts//dlxfont.tff";
+	font = TTF_OpenFont(fontPath.c_str(), 30);
+
+    nextState = new GameObject();
+    nextState->loadFromRenderedText("PRESS ENTER TO RETURN MENU!", {131, 111, 255});
+    nextState->setRect({300, 300});
+
+    unpause = new GameObject();
+    unpause->loadFromRenderedText("PRESS ESC TO CONTINUE OR ENTER TO RETURN MENU!", {131, 111, 255});
+    unpause->setRect({100, 300});
+
+    retry = new GameObject();
+    retry->loadFromRenderedText("LET'S TRY AGAIN!", {255, 255, 255});
+    retry->setRect({400, 200});
+
+    fontPath = "Data//Fonts//dlxfont.tff";
+	font = TTF_OpenFont(fontPath.c_str(), 40);
+
 }
 
 void GameWindow::render() {
@@ -75,5 +109,44 @@ void GameWindow::render() {
 }
 
 void GameWindow::update(const Uint32& deltaTime) {
+    if (LOOSE) return;
     mainMap->update(deltaTime);
+}
+
+void GameWindow::renderGameOver() {
+    background->render(false);
+    loose->render(false);
+    retry->render(false);
+    nextState->render(false);
+}
+
+void GameWindow::renderPause() {
+    background->render(false);
+    gPause->render(false);
+    unpause->render(false);
+}
+
+void GameWindow::renderWin() {
+    std::string fontPath = "Data//Fonts//dlxfont.tff";
+	font = TTF_OpenFont(fontPath.c_str(), 30);
+
+
+    win = new GameObject();
+    std::string winstring = "You have surpassed ";
+    winstring += " players!";
+    winGame->loadFromRenderedText(winstring, {255, 255, 255});
+    winGame->setRect({250, 200});
+
+    fontPath = "Data//Fonts//dlxfont.tff";
+	font = TTF_OpenFont(fontPath.c_str(), 40);
+
+    background->render(false);
+    win->render(false);
+    winGame->render(false);
+    nextState->render(false);
+}
+
+void GameWindow::free() {
+    totalCherry = 0;
+    curMap = 1;
 }

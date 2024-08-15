@@ -7,6 +7,9 @@
 #include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
+#include <SDL_mixer.h>
+
 
 #include "Game.hpp"
 #include "GameObject.hpp"
@@ -20,11 +23,17 @@ public:
 
     void handleEvents();
     void render();
+    void renderGameOver();
+    void renderWin();
+    void renderPause();
     void free();
     bool init();
     void update(const Uint32& deltaTime);
     void setUp();
-    bool getRunning();
+
+    bool getRunning() {return checkRunning; }
+    bool isWinning() { return WIN; }
+    bool isLosing() { return LOOSE; }
 
     int curMap = 1;
 private:
@@ -33,6 +42,13 @@ private:
     GameObject* background;
     bool WIN = false;
     bool LOOSE = false;
+    GameObject* loose;
+    GameObject* win;
+    GameObject* gPause;
+    GameObject* nextState;
+    GameObject* unpause;
+    GameObject* retry;
+    GameObject* winGame;
 
 
 };
