@@ -3,8 +3,8 @@
 Cherry::Cherry(std::pair<int, int> pos)
     : delCherry(false), eatCherry(false)
 {
-    animation = new Animation("data/textures/Cherry/cherry1.png", {6, 1}, 100);
-    loadIMG("data/textures/Cherry/cherry1.png");
+    animation = new Animation("Data//Textures/Cherry//cherry.png", {9, 1}, 100);
+    loadIMG("Data//Textures/Cherry//cherry.png");
     setSize({27, 27});
     setRect(pos);
     collision = new Collision(*this);
@@ -19,8 +19,8 @@ void Cherry::update(const Uint32& deltaTime) {
     if (delCherry) return;
 
     if (eatCherry == 1) {
-            animation = new Animation("data/textures/Cherry/cherry2.png", {6, 1}, 100);
-            loadIMG("data/textures/Cherry/cherry2.png");
+            animation = new Animation("Data//Textures/Cherry//cherry_eat.png", {4, 1}, 100);
+            loadIMG("Data//Textures/Cherry//cherry_eat.png");
             setSize({27, 54});
             movePos({0, -27});
             eatCherry++;
@@ -33,8 +33,8 @@ void Cherry::update(const Uint32& deltaTime) {
     }
 }
 
-/*void Cherry::render() {
+void Cherry::render() {
     if (!delCherry) {
-        render(0, animation->getRect());
+        GameObject::render(0, animation->getRect());
     }
-}*/
+}
