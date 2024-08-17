@@ -34,8 +34,8 @@ void Level::addWall(const std::pair<int, int>& pos, int type) {
 
 void Level::update(const Uint32& deltaTime) {
     const std::string leverTexture = isOpen ?
-        "Data//Textures//Level//level_right.png" :
-        "Data//Textures//Level//level_left.png";
+        "Data//Textures//Level//lever_right.png" :
+        "Data//Textures//Level//lever_left.png";
     _switch.loadIMG(leverTexture);
 
     if (statusDuration > 0) {
@@ -46,7 +46,7 @@ void Level::update(const Uint32& deltaTime) {
     const std::string wallTextureSuffix = isOpen ? "_open.png" : "_closed.png";
 
     for (auto& wall : _wallSegments) {
-        const std::string wallTexture = wallTextureBase + std::to_string(wall.second) + wallTextureSuffix;
+        const std::string wallTexture = wallTextureBase + wallTextureSuffix;
         wall.first.first->loadIMG(wallTexture);
     }
 }

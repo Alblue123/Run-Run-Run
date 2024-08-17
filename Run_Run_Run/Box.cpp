@@ -1,10 +1,10 @@
 #include "Box.hpp"
 
 Box::Box(const std::pair<int, int>& pos) {
-    player.loadIMG("Data//Textures//Box//box.png");
-    player.setSize({36, 36});
-    player.setRect(pos);
-    collision = new Collision(player);
+    object.loadIMG("Data//Textures//Box//box.png");
+    object.setSize({36, 36});
+    object.setRect(pos);
+    collision = new Collision(object);
     canDrop = true;
 }
 
@@ -13,7 +13,7 @@ Box::~Box() {
 }
 
 void Box::render() {
-    player.render(false);
+    object.render(false);
 }
 
 void Box::update(const Uint32& deltaTime) {
@@ -22,16 +22,16 @@ void Box::update(const Uint32& deltaTime) {
     } else {
         vel.second = 0;
     }
-    player.movePos(vel);
+    object.movePos(vel);
     canDrop = true;
     limitPos();
 }
 
 void Box::limitPos() {
-    if (player.getPos().first < 0) {
-        player.setRect({0, player.getPos().second});
+    if (object.getPos().first < 0) {
+        object.setRect({0,object.getPos().second});
     }
-    if (player.getPos().first + player.getSize().first > SCREEN_WIDTH) {
-        player.setRect({SCREEN_WIDTH - player.getSize().first, player.getPos().second});
+    if (object.getPos().first + object.getSize().first > SCREEN_WIDTH) {
+        object.setRect({SCREEN_WIDTH - object.getSize().first, object.getPos().second});
     }
 }

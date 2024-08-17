@@ -89,12 +89,12 @@ void GameMap::loadMap(std::string path) {
         cherries.push_back(new Cherry({x - 13.5, y - 13.5}));
     }
 
+
     map_file >> total; bool mtype;
     for (int i = 0; i < total; i++){
         map_file >> x >> y >> mtype;
         spikes.push_back(new Spikes({x, y}, mtype));
     }
-
 
     map_file >> x >> y;
     closedDoor = new ClosedDoor({x, y});
@@ -111,17 +111,20 @@ void GameMap::loadMap(std::string path) {
         plates.push_back(new Plate({x, y}));
     }
 
+
     map_file >> total;
     for (int i = 0; i < total; i++){
         map_file >> x >> y;
         boxes.push_back(new Box({x, y}));
     }
 
+
     map_file >> total;
     for (int i = 0; i < total; i++){
         map_file >> x >> y;
         treasures.push_back(new Treasure({x, y}));
     }
+
 
     std::pair<int, int> _pos, _start, _end;
     map_file >> total;
@@ -130,6 +133,25 @@ void GameMap::loadMap(std::string path) {
         monsters.push_back(new Monster(type, _pos, _start, _end));
     }
 
+
+    map_file>>total;
+    for (int i = 0; i < total; ++i) {
+        map_file >> x >> y;
+        jumps.push_back(new Jump({x, y}));
+    }
+
+
+     map_file>>total;
+     for (int i = 0; i < total; i++){
+        map_file >> x >> y;
+        level = new Level({x, y});
+        int _total = 0;
+        map_file >> _total;
+        for (int j = 0; j < _total; j++){
+            map_file >> x >> y >> mtype;
+            level->addWall({x, y}, mtype);
+        }
+    }
 
     map_file.close();
 }
@@ -141,12 +163,12 @@ void GameMap::render() {
     renderCherry();
     renderSpikes();
     renderClosedDoor();
+    renderPrincess();
     renderPlate();
     renderBox();
-    renderMonster();
-    renderPrincess();
-    renderJump();
     renderTreasure();
+    renderMonster();
+    renderJump();
     renderLevel();
 }
 
@@ -223,31 +245,33 @@ void GameMap::renderLevel() {
 
 void GameMap::update(const Uint32& deltaTime) {
     setCollisionSurfacePlayer(surface, player, width, height);
-    setCollisionSurfaceSpikes(surface, spikes, width, height);
     setCollisionCherryPlayer(cherries, player);
+    setCollisionSurfaceSpikes(surface, spikes, width, height);
     SetCollisionClosedDoorPlayer(closedDoor, player);
+    SetCollisionPrincessPlayer(princess, player, win);
     SetCollisionPlatePlayer(plates, player, deltaTime);
     SetCollisionBoxPlate(boxes, plates, deltaTime);
     SetCollisionPlayerBox(boxes, player);
     SetCollisionSurfaceBox(surface, boxes, width, height);
-    SetCollisionMonsterPlayer(monsters, player);
-    SetCollisionPrincessPlayer(princess, player, win);
-    SetCollisionJumpPlayer(jumps, player);
-    SetCollisionTreasurePlyaer(treasures, player);
-    SetCollisionPlayerLevel(level, player);
     setCollisionSpikesBoxes(spikes, boxes);
-    //Boxes(boxes);
+    Boxes(boxes);
+    SetCollisionTreasurePlyaer(treasures, player);
+    SetCollisionMonsterPlayer(monsters, player);
+    SetCollisionJumpPlayer(jumps, player);
+    SetCollisionPlayerLevel(level, player);
+    SetCollisionLevelBox(level, boxes);
+
 
     updatePlayer(deltaTime);
     updateCherry(deltaTime);
     updateSpikes(deltaTime);
     updateClosedDoor(deltaTime);
+    updatePrincess(deltaTime);
     updatePlate(deltaTime);
     updateBox(deltaTime);
-    updateMonster(deltaTime);
-    updatePrincess(deltaTime);
-    updateJump(deltaTime);
     updateTreasure(deltaTime);
+    updateMonster(deltaTime);
+    updateJump(deltaTime);
     updateLevel(deltaTime);
 }
 
@@ -289,18 +313,12 @@ void GameMap::updatePlate(const Uint32& deltaTime) {
     SetCollisionPlatePlayer(plates, player, deltaTime);
     SetCollisionBoxPlate(boxes, plates, deltaTime);
 
-    bool anyPlatePressed = false;
-    for (auto& plate : plates) {
+    if (!plates.empty()) closedDoor->setOpen(true);
+    for (auto& plate: plates){
         plate->update();
-        if (plate->getStepped()) {
-            anyPlatePressed = true;
-        } else {
+        if (!plate->getStepped()){
             closedDoor->setOpen(false);
         }
-    }
-
-    if (anyPlatePressed) {
-        closedDoor->setOpen(true);
     }
 }
 
@@ -528,7 +546,7 @@ void GameMap::SetCollisionJumpPlayer(std::list<Jump*> jumps, Player* player) {
             checkResult != collision::down &&
             checkResult != collision::_down) {
 
-            player->vel.second = -sqrt(2.0f * 981.0f * player->jumHeight * 1.7f);
+            player->vel.second = -sqrt(2.0f * 981.0f * player->jumHeight * 1.2f);
             player->canJump = false;
         }
     }
@@ -553,7 +571,7 @@ void GameMap::SetCollisionPlayerLevel(Level* level, Player* player) {
     if (player->attack.isActive && level->shouldRestartStatus()) {
         if (level->colliderSwitch->checkCollision(player->attack.collision) != 0) {
             level->isOpen = !level->isOpen;
-            level->statusDuration = 500;
+            level->statusDuration = 1000;
         }
     }
 
@@ -576,11 +594,43 @@ void GameMap::SetCollisionLevelBox(Level* level, std::list<Box*> boxes) {
         return;
     }
 
-    for (const auto& box : boxes) {
-        for (const auto& wall : level->_wallSegments) {
-            int collisionCheck = wall.first.second->checkCollision(box->getCollision(), 1.0f);
-            if (collisionCheck == collision::top || collisionCheck == collision::_top) {
-                box->canDrop = false;
+    for (auto& box : boxes) {
+        for (auto wall : level->_wallSegments) {
+            if (level->isOpen == false) {
+                 int collisionCheck = wall.first.second->checkCollision(box->getCollision(), 1.0f);
+                 if (collisionCheck == collision::top || collisionCheck == collision::_top) {
+                    box->canDrop = false;
+                }
+            }
+        }
+    }
+}
+
+void GameMap::Boxes(std::list<Box*> boxes) {
+    for (auto& box1 : boxes) {
+        for (auto& box2 : boxes) {
+            if (box1 == box2) {
+                continue;
+            }
+
+            int collisionResult1 = box1->getCollision()->checkCollision(box2->getCollision());
+            int collisionResult2 = box2->getCollision()->checkCollision(box1->getCollision());
+
+            if (collisionResult1 == collision::top || collisionResult1 == collision::_top) {
+                box2->object.setRect({
+                    box1->object.getPos().first,
+                    box1->object.getPos().second - box2->object.getSize().second
+                });
+                box2->canDrop = false;
+            } else if (collisionResult2 == collision::top || collisionResult2 == collision::_top) {
+                box1->object.setRect({
+                    box2->object.getPos().first,
+                    box2->object.getPos().second - box1->object.getSize().second
+                });
+                box1->canDrop = false;
+            } else {
+                box2->getCollision()->checkCollision(box1->getCollision(), 0.6f);
+                box1->getCollision()->checkCollision(box2->getCollision(), 0.6f);
             }
         }
     }

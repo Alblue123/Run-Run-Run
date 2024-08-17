@@ -16,7 +16,7 @@ public:
     void limitPos();
 
     bool canDrop;
-    GameObject player;
+    GameObject object;
 private:
     std::pair<float, float> vel;
     Collision* collision = nullptr;

@@ -413,7 +413,7 @@
 	<ctime>
 	"Timer.hpp"
 
-1723744529 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
+1723891066 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
 	"Game.hpp"
 	"GameWindow.hpp"
 
@@ -445,12 +445,12 @@
 	"Instruction.hpp"
 	"Menu.hpp"
 
-1723889690 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
+1723931918 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
 	"GameWindow.hpp"
 
 1722224259 source:d:\programming\programming_project\run_run_run\run_run_run\background.cpp
 
-1723883294 source:d:\programming\programming_project\run_run_run\run_run_run\gamemap.cpp
+1723933469 source:d:\programming\programming_project\run_run_run\run_run_run\gamemap.cpp
 	"GameMap.hpp"
 
 1723873993 d:\programming\programming_project\run_run_run\run_run_run\gamemap.hpp
@@ -506,7 +506,7 @@
 	<SDL.h>
 	"Game.hpp"
 
-1723875221 d:\programming\programming_project\run_run_run\run_run_run\player.hpp
+1723933488 d:\programming\programming_project\run_run_run\run_run_run\player.hpp
 	<cmath>
 	<functional>
 	<utility>
@@ -517,7 +517,7 @@
 	"Animation.hpp"
 	"GameObject.hpp"
 
-1723868846 source:d:\programming\programming_project\run_run_run\run_run_run\player.cpp
+1723899544 source:d:\programming\programming_project\run_run_run\run_run_run\player.cpp
 	"Player.hpp"
 
 1723877058 source:d:\programming\programming_project\run_run_run\run_run_run\cherry.cpp
@@ -554,12 +554,12 @@
 1723220888 source:d:\programming\programming_project\run_run_run\run_run_run\plate.cpp
 	"Plate.hpp"
 
-1723435004 d:\programming\programming_project\run_run_run\run_run_run\box.hpp
+1723923749 d:\programming\programming_project\run_run_run\run_run_run\box.hpp
 	"Animation.hpp"
 	"Collision.hpp"
 	"GameObject.hpp"
 
-1723435651 source:d:\programming\programming_project\run_run_run\run_run_run\box.cpp
+1723923833 source:d:\programming\programming_project\run_run_run\run_run_run\box.cpp
 	"Box.hpp"
 
 1723439956 d:\programming\programming_project\run_run_run\run_run_run\monster.hpp
@@ -567,7 +567,7 @@
 	"Collision.hpp"
 	"Animation.hpp"
 
-1723875694 source:d:\programming\programming_project\run_run_run\run_run_run\monster.cpp
+1723924475 source:d:\programming\programming_project\run_run_run\run_run_run\monster.cpp
 	"Monster.hpp"
 
 1705848875 c:\mingw_dev_lib\sdl2_ttf-2.0.14\x86_64-w64-mingw32\include\sdl2\sdl_ttf.h
@@ -630,6 +630,6 @@
 	"Collision.hpp"
 	"Animation.hpp"
 
-1723863920 source:d:\programming\programming_project\run_run_run\run_run_run\level.cpp
+1723930817 source:d:\programming\programming_project\run_run_run\run_run_run\level.cpp
 	"Level.hpp"
 

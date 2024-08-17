@@ -74,7 +74,7 @@ void GameWindow::setUp() {
     totalCherry = 0;
 
     mainMap = new GameMap();
-    mainMap->loadMap("Data//Map//Map1.txt");
+    mainMap->loadMap("Data//Map//Map5.txt");
     background = new GameObject();
     if (background->loadIMG("Data/Textures/Background/Background1.png")) {
         background->setRect({0, 0});
