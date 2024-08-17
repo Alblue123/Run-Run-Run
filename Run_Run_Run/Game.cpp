@@ -19,7 +19,7 @@ int _totalHearts = 0;
 TTF_Font* font;
 
 
-bool HandleEvents(bool& quitGame, int& currState);
+bool HandleEvents(bool& quitGame, int& currState, int& status);
 void renderGame();
 int play();
 int main();
@@ -63,20 +63,28 @@ void start() {
     clean();
 }
 
-bool HandleEvents(bool& quitGame, int& currState) {
+void renderGame() {
+    gWin->render();
+}
+
+bool HandleEvents(bool& quitGame, int& currState, int& status) {
     SDL_Event event;
     while (SDL_PollEvent(&event) != 0) {
         if (event.type == SDL_QUIT) {
             quitGame = true;
-            return false;
+            return true;
         } else if (event.type == SDL_KEYDOWN) {
             switch (event.key.keysym.sym) {
                 case SDLK_ESCAPE:
                     if (currState == -1) currState = 1;
                     else currState = -1;
+                    break;
                 case SDLK_RETURN:
-                    if (currState == 1 && event.key.repeat == 0)
-                        return false;
+                    if (currState == 1 && event.key.repeat == 0) {
+                        status = MENU;
+                        return true;
+                    }
+                    break;
                 default:
                     break;
             }
@@ -84,31 +92,33 @@ bool HandleEvents(bool& quitGame, int& currState) {
     }
     return false;
 }
-void renderGame() {
-    gWin->render();
-}
 
-void renderGame(int& currState) {
+int renderGame(int& currState) {
     if (gWin->isWinning()) {
         gWin->renderWin();
-        if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RETURN])
-            return;
+        if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RETURN]) {
+            return MENU;
+        }
     } else if (gWin->isLosing()) {
         gWin->renderGameOver();
-        if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RETURN])
-            return;
+        if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RETURN]) {
+            return MENU;
+        }
     } else {
-        if (currState == 1)
+        if (currState == 1) {
             gWin->renderPause();
-        else
+        } else {
             gWin->render();
+        }
     }
+    return 0;
 }
 
 int play() {
     bool quit = false, quitGame = false;
     int currState = -1;
     Uint32 start_time = 0, current_time, deltaTime;
+    int status = 0;
     gWin->setUp();
 
     while (!quit) {
@@ -119,13 +129,23 @@ int play() {
         deltaTime = std::min(current_time - start_time, static_cast<Uint32>(frameDelay));
         start_time = current_time;
 
-        if (HandleEvents(quitGame, currState)) {
+        if (HandleEvents(quitGame, currState, status)) {
+            if (status == MENU) {
+                return MENU;
+            }
             quit = true;
             break;
         }
-        if (currState != 1) gWin->update(deltaTime);
 
-        renderGame(currState);
+
+        if (currState != 1) {
+            gWin->update(deltaTime);
+        }
+
+        int gameState = renderGame(currState);
+        if (gameState == MENU) {
+            return MENU;
+        }
 
         SDL_RenderPresent(renderer);
 
@@ -137,7 +157,7 @@ int play() {
             break;
     }
 
-   return -1;
+    return -1;
 }
 
 int main() {

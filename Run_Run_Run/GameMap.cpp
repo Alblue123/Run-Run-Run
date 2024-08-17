@@ -30,8 +30,28 @@ GameMap::~GameMap() {
         delete player;
     }
 
+    if (level != nullptr) {
+        delete level;
+    }
+
     if (princess != nullptr) {
         delete princess;
+    }
+
+    for (auto& cherry: cherries) {
+        delete cherry;
+    }
+
+    for (auto& spike: spikes) {
+        delete spike;
+    }
+
+    for (auto& box: boxes) {
+        delete box;
+    }
+
+    for (auto& plate: plates) {
+        delete plate;
     }
 }
 
@@ -58,22 +78,19 @@ void GameMap::loadMap(std::string path) {
         }
     }
 
-    int _totalCherry;
-    map_file >> _totalCherry;
-    for (int i = 0; i < _totalCherry; i++){
-        int x, y;
-        map_file >> x >> y;
-        cherries.push_back(new Cherry({x - 13.5, y - 13.5}));
-    }
-
-
     int x, y, type;
     map_file >> x >> y >> type;
     player = new Player({x, y}, type);
 
-    int tolTrap = 0;
-    map_file >> tolTrap; bool mtype;
-    for (int i = 0; i < tolTrap; i++){
+    int total;
+    map_file >> total;
+    for (int i = 0; i < total; i++){
+        map_file >> x >> y;
+        cherries.push_back(new Cherry({x - 13.5, y - 13.5}));
+    }
+
+    map_file >> total; bool mtype;
+    for (int i = 0; i < total; i++){
         map_file >> x >> y >> mtype;
         spikes.push_back(new Spikes({x, y}, mtype));
     }
@@ -88,31 +105,27 @@ void GameMap::loadMap(std::string path) {
     princess = new Princess({x, y}, ptype);
 
 
-    int tolPlate;
-    map_file >> tolPlate;
-    for (int i = 0; i < tolPlate; i++){
+    map_file >> total;
+    for (int i = 0; i < total; i++){
         map_file >> x >> y;
         plates.push_back(new Plate({x, y}));
     }
 
-    int tolBox;
-    map_file >> tolBox;
-    for (int i = 0; i < tolBox; i++){
+    map_file >> total;
+    for (int i = 0; i < total; i++){
         map_file >> x >> y;
         boxes.push_back(new Box({x, y}));
     }
 
-    int tolChest;
-    map_file >> tolChest;
-    for (int i = 0; i < tolChest; i++){
+    map_file >> total;
+    for (int i = 0; i < total; i++){
         map_file >> x >> y;
         treasures.push_back(new Treasure({x, y}));
     }
 
-    int tolMon;
     std::pair<int, int> _pos, _start, _end;
-    map_file >> tolMon;
-    for (int i = 0; i < tolMon; i++){
+    map_file >> total;
+    for (int i = 0; i < total; i++){
         map_file >> type >> _pos.first >> _pos.second >> _start.first >> _start.second >> _end.first >> _end.second;
         monsters.push_back(new Monster(type, _pos, _start, _end));
     }

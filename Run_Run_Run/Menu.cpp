@@ -76,7 +76,7 @@ int Menu::update(const Uint32& deltaTime) {
     }
 
     updateMenuItem(mainGame, "PLAY", {255, 255, 255}, {50, 350});
-    updateMenuItem(instruction, "INSTRUCTION", {255, 255, 255}, {50, 400});
+    updateMenuItem(instruction, "INSTRUCTION", {255, 255, 255}, {45, 400});
     updateMenuItem(exit, "EXIT", {255, 255, 255}, {50, 450});
 
     switch (currState) {

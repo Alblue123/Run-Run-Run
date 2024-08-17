@@ -24,17 +24,17 @@ void Instruction::init() {
 
     title = new GameObject();
     title->loadFromRenderedText("Instruction", {255, 255, 255});
-    title->setRect({400, 20});
+    title->setRect({300, 20});
 
     main = new GameObject();
-    main->loadIMG("Data//Textures//Background//Background1.png");
+    main->loadIMG("Data//Textures//Background//Tutorial.png");
     main->setRect({50, 50});
 
     std::string fontPath = "Data//Fonts//dlxfont_.ttf";
-    font = TTF_OpenFont(fontPath.c_str(), 30);
+    font = TTF_OpenFont(fontPath.c_str(), 25);
     nextState = new GameObject();
-    nextState->loadFromRenderedText("PRESS ENTER TO RETURN MENU!", {131, 111, 255});
-    nextState->setRect({300, 500});
+    nextState->loadFromRenderedText("PRESS ENTER TO RETURN MENU!", {255, 255, 255});
+    nextState->setRect({200, 450});
 
     fontPath = "Data//Fonts//dlxfont_.ttf";
     font = TTF_OpenFont(fontPath.c_str(), 40);

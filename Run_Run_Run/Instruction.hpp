@@ -1,5 +1,8 @@
+#pragma once
+
 #include "Game.hpp"
 #include "GameObject.hpp"
+#include <vector>
 
 class Instruction
 {

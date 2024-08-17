@@ -92,18 +92,18 @@ void GameWindow::setUp() {
 
     gPause = new GameObject();
     gPause->loadFromRenderedText("GAME PAUSED!!!", {255, 255, 255});
-    gPause->setRect({350, 100});
+    gPause->setRect({250, 100});
 
     std::string fontPath = "Data//Fonts//dlxfont_.ttf";
-	font = TTF_OpenFont(fontPath.c_str(), 30);
+	font = TTF_OpenFont(fontPath.c_str(), 20);
 
     nextState = new GameObject();
     nextState->loadFromRenderedText("PRESS ENTER TO RETURN MENU!", {131, 111, 255});
-    nextState->setRect({300, 300});
+    nextState->setRect({200, 300});
 
     unpause = new GameObject();
     unpause->loadFromRenderedText("PRESS ESC TO CONTINUE OR ENTER TO RETURN MENU!", {131, 111, 255});
-    unpause->setRect({100, 300});
+    unpause->setRect({50, 300});
 
     retry = new GameObject();
     retry->loadFromRenderedText("LET'S TRY AGAIN!", {255, 255, 255});
@@ -120,6 +120,17 @@ void GameWindow::render() {
 
 void GameWindow::update(const Uint32& deltaTime) {
     if (LOOSE) return;
+    if (mainMap->win && mainMap->getPlayer()->delPlayer) {
+        curMap++;
+        if (curMap > 5) {
+            WIN = true;
+        } else {
+            delete mainMap;
+            std::string path = "Data//Map//Map" + std::to_string(curMap) + ".txt";
+            mainMap = new GameMap();
+            mainMap->loadMap(path);
+        }
+    }
     mainMap->update(deltaTime);
 }
 
