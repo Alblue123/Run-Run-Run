@@ -3,6 +3,11 @@
 #include "Animation.hpp"
 #include "Collision.hpp"
 
+#include <chrono>
+#include <thread>
+#include <iostream>
+#include <windows.h>
+
 class Treasure : public GameObject
 {
 public:

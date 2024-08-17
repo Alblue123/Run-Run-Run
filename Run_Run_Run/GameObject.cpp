@@ -47,10 +47,10 @@ bool GameObject::loadIMG(std::string path)
     return mTexture != NULL;
 }
 
-void GameObject::loadFromRenderedText(TTF_Font* font, SDL_Color textColor) {
+bool GameObject::loadFromRenderedText(std::string path, SDL_Color textColor) {
     free();
 
-	SDL_Surface* text_surface = TTF_RenderText_Solid(font, str_val.c_str(), text_color);
+	SDL_Surface* text_surface = TTF_RenderText_Solid(font, path.c_str(), textColor);
 	if (text_surface == NULL)
 	{
 		std::cout << "Unable to render text surface! SDL_ttf Error: " << TTF_GetError() << std::endl;
@@ -65,8 +65,8 @@ void GameObject::loadFromRenderedText(TTF_Font* font, SDL_Color textColor) {
 		}
 		else
 		{
-			width_ = text_surface->w;
-			height_ = text_surface->h;
+			rect.w = text_surface->w;
+			rect.h = text_surface->h;
 		}
 
 		SDL_FreeSurface(text_surface);

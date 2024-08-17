@@ -488,7 +488,7 @@ void GameMap::SetCollisionMonsterPlayer(std::list<Monster*> monsters, Player* pl
         else if (monster->checkDeath == 0) {
             int collisionResult = monster->getCollision()->checkCollision(player->getCollision());
             if (collisionResult == collision::right || collisionResult == collision::left) {
-                player->end = false;
+                player->end = true;
                 player->attack.isActive = false;
             }
         }

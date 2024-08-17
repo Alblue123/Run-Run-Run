@@ -1,5 +1,7 @@
 #pragma once
 
+#include <SDL_ttf.h>
+
 #include "Game.hpp"
 #include "GameObject.hpp"
 

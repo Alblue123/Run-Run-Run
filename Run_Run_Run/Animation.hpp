@@ -24,13 +24,12 @@ public:
     SDL_Rect* getRect() { return &box; }
     bool getFlip() const { return flip; }
 
+    std::pair<int, int> currFrame;
+    Uint32 currTime;
 private:
     std::pair<int, int> frameCount;
     Uint32 switchTime;
     SDL_Surface* surface;
     SDL_Rect box;
     bool flip;
-
-    std::pair<int, int> currFrame;
-    Uint32 currTime;
 };

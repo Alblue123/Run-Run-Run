@@ -19,7 +19,7 @@ int _totalHearts = 0;
 TTF_Font* font;
 
 
-bool HandleEvents(bool& quitGame);
+bool HandleEvents(bool& quitGame, int& currState);
 void renderGame();
 int play();
 int main();
@@ -63,18 +63,20 @@ void start() {
     clean();
 }
 
-bool HandleEvents(bool& quitGame) {
+bool HandleEvents(bool& quitGame, int& currState) {
     SDL_Event event;
     while (SDL_PollEvent(&event) != 0) {
         if (event.type == SDL_QUIT) {
             quitGame = true;
-            return true;
+            return false;
         } else if (event.type == SDL_KEYDOWN) {
             switch (event.key.keysym.sym) {
                 case SDLK_ESCAPE:
-                    break;
+                    if (currState == -1) currState = 1;
+                    else currState = -1;
                 case SDLK_RETURN:
-                    break;
+                    if (currState == 1 && event.key.repeat == 0)
+                        return false;
                 default:
                     break;
             }
@@ -86,22 +88,22 @@ void renderGame() {
     gWin->render();
 }
 
-/*void renderGame() {
-    if (gWin->isWinGame()) {
-        game->RenderGameWin();
+void renderGame(int& currState) {
+    if (gWin->isWinning()) {
+        gWin->renderWin();
         if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RETURN])
             return;
-    } else if (game->isLoseGame()) {
-        game->RenderGameOver();
+    } else if (gWin->isLosing()) {
+        gWin->renderGameOver();
         if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RETURN])
             return;
     } else {
-        if (currentstate == 1)
-            game->RenderGamePause();
+        if (currState == 1)
+            gWin->renderPause();
         else
-            game->Render();
+            gWin->render();
     }
-}*/
+}
 
 int play() {
     bool quit = false, quitGame = false;
@@ -117,13 +119,13 @@ int play() {
         deltaTime = std::min(current_time - start_time, static_cast<Uint32>(frameDelay));
         start_time = current_time;
 
-        if (HandleEvents(quitGame)) {
+        if (HandleEvents(quitGame, currState)) {
             quit = true;
             break;
         }
         if (currState != 1) gWin->update(deltaTime);
 
-        renderGame();
+        renderGame(currState);
 
         SDL_RenderPresent(renderer);
 

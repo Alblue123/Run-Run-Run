@@ -14,6 +14,8 @@
 #include "Game.hpp"
 #include "GameObject.hpp"
 #include "GameMap.hpp"
+#include "Instruction.hpp"
+#include "Menu.hpp"
 
 class GameWindow
 {

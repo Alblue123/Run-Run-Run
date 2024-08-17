@@ -31,13 +31,13 @@ void Menu::init() {
     bg->setRect({0, 0});
     bg->setSize({SCREEN_WIDTH, SCREEN_HEIGHT});
 
-    std::string fontPath = "ata//Fonts//dlxfont.tff";
-    font = TTF_OpenFont(fontPath.c_str(), 150);
+    std::string fontPath = "Data//Fonts//dlxfont_.ttf";
+    font = TTF_OpenFont(fontPath.c_str(), 50);
     gName = new GameObject();
     gName->loadFromRenderedText("RUN RUN RUN", {255, 255, 255});
     gName->setRect({300, 100});
 
-    fontPath = "ata//Fonts//dlxfont.tff";
+    fontPath = "Data//Fonts//dlxfont_.ttf";
     font = TTF_OpenFont(fontPath.c_str(), 40);
 
     mainGame = new GameObject();

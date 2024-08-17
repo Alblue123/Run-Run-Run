@@ -53,6 +53,16 @@ bool GameWindow::init() {
                 std::cout << "SDL_image could not initialize! SDL_image Error:" << IMG_GetError() << std::endl;
                 isRunning = false;
             }
+
+            if (TTF_Init() == -1)
+            {
+                std::cout << "SDL_ttf could not initialize! SDL_ttf Error: " << TTF_GetError() << std::endl;
+                isRunning = false;
+            }
+            font = TTF_OpenFont("Data//Fonts//dlxfont_.ttf", 30);
+            if (font ==  nullptr) {
+                std::cerr << "Failed to load font! TTF_Error: " << TTF_GetError() << std::endl;
+            }
         }
     }
     return isRunning;
@@ -84,7 +94,7 @@ void GameWindow::setUp() {
     gPause->loadFromRenderedText("GAME PAUSED!!!", {255, 255, 255});
     gPause->setRect({350, 100});
 
-    std::string fontPath = "Data//Fonts//dlxfont.tff";
+    std::string fontPath = "Data//Fonts//dlxfont_.ttf";
 	font = TTF_OpenFont(fontPath.c_str(), 30);
 
     nextState = new GameObject();
@@ -99,7 +109,7 @@ void GameWindow::setUp() {
     retry->loadFromRenderedText("LET'S TRY AGAIN!", {255, 255, 255});
     retry->setRect({400, 200});
 
-    fontPath = "Data//Fonts//dlxfont.tff";
+    fontPath = "Data//Fonts//dlxfont_.ttf";
 	font = TTF_OpenFont(fontPath.c_str(), 40);
 
 }
@@ -127,7 +137,7 @@ void GameWindow::renderPause() {
 }
 
 void GameWindow::renderWin() {
-    std::string fontPath = "Data//Fonts//dlxfont.tff";
+    std::string fontPath = "Data//Fonts//dlxfont_.ttf";
 	font = TTF_OpenFont(fontPath.c_str(), 30);
 
 
@@ -137,7 +147,7 @@ void GameWindow::renderWin() {
     winGame->loadFromRenderedText(winstring, {255, 255, 255});
     winGame->setRect({250, 200});
 
-    fontPath = "Data//Fonts//dlxfont.tff";
+    fontPath = "Data//Fonts//dlxfont_.ttf";
 	font = TTF_OpenFont(fontPath.c_str(), 40);
 
     background->render(false);

@@ -2,6 +2,8 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include <windows.h>
 #include <vector>
 #include <utility>
@@ -30,5 +32,10 @@ extern SDL_Renderer* renderer;
 const int frameDelay = 1000 / FPS;
 extern Uint32 frameStart;
 extern unsigned int frameTime;
+
+extern int totalCherry;
+extern int _totalHearts;
+
+extern TTF_Font* font;
 
 void start();

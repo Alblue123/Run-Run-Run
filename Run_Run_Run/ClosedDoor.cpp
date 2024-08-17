@@ -2,7 +2,7 @@
 
 ClosedDoor::ClosedDoor(const std::pair<int, int>& pos)
     : open(false) {
-    animation = new Animation("Data//Textures/ClosedDoor//strange_door.png", {14, 2}, 75);
+    animation = new Animation("Data//Textures/ClosedDoor//strange_door.png", {11, 2}, 75);
     loadIMG("Data//Textures/ClosedDoor//strange_door.png");
     setSize({40, 100});
     setRect(pos);

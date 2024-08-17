@@ -5,8 +5,8 @@
 #include <algorithm>
 
 enum collision {
-     top = 1, right = 2, left = 3, down = 4,
-    _top = -1, _right = -2, _left = -3, _down = -4,
+     top = 8, right = 6, left = 4, down = 2,
+    _top = -8, _right = -6, _left = -4, _down = -2,
 };
 
 class Collision

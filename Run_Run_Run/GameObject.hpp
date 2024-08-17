@@ -17,7 +17,7 @@ public:
 	std::pair<int, int> getSize() const { return {rect.w, rect.h}; }
 
     virtual bool loadIMG(std::string path);
-    bool loadFromRenderedText(TTF_Font* font, SDL_Color textColor);
+    bool loadFromRenderedText(std::string path, SDL_Color textColor);
     void render(bool flip = 0, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL);
     void free();
 

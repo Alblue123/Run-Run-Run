@@ -5,7 +5,7 @@ Spikes::Spikes(const std::pair<int, int> pos, bool dir)
     : dir(dir),
       animation(new Animation("Data//Textures//Spikes//spikes" + std::to_string(dir) + ".png", {2, 1}, 0)),
       collision(new Collision(*this)) {
-    setSize({32, 100});
+    setSize({32, 32});
     setRect(pos);
     loadIMG("Data//Textures//Spikes//spikes" + std::to_string(dir) + ".png");
 }
@@ -16,8 +16,8 @@ Spikes::~Spikes() {
 }
 
 bool Spikes::checkPlayer(Player* player) {
-    if (!player) return false;
-    return (dir ? checkUp(player) : checkDown(player));
+    if (dir == 1) return checkUp(player);
+    else return checkDown(player);
 }
 
 bool Spikes::checkUp(Player* player) {

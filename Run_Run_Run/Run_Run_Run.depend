@@ -398,9 +398,11 @@
 	"begin_code.h"
 	"close_code.h"
 
-1722835578 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
+1723736691 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
 	<SDL.h>
 	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
 	<windows.h>
 	<vector>
 	<utility>
@@ -411,7 +413,7 @@
 	<ctime>
 	"Timer.hpp"
 
-1723146406 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
+1723744529 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
 	"Game.hpp"
 	"GameWindow.hpp"
 
@@ -427,7 +429,7 @@
 1721619963 d:\programming\programming_project\run_run_run\run_run_run\timer.hpp
 	"Game.hpp"
 
-1723145832 d:\programming\programming_project\run_run_run\run_run_run\gamewindow.hpp
+1723739674 d:\programming\programming_project\run_run_run\run_run_run\gamewindow.hpp
 	<windows.h>
 	<vector>
 	<string>
@@ -435,43 +437,61 @@
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
 	"Game.hpp"
 	"GameObject.hpp"
 	"GameMap.hpp"
+	"Instruction.hpp"
+	"Menu.hpp"
 
-1723145942 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
+1723740991 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
 	"GameWindow.hpp"
 
 1722224259 source:d:\programming\programming_project\run_run_run\run_run_run\background.cpp
 
-1722885173 source:d:\programming\programming_project\run_run_run\run_run_run\gamemap.cpp
+1723876253 source:d:\programming\programming_project\run_run_run\run_run_run\gamemap.cpp
 	"GameMap.hpp"
 
-1723037875 d:\programming\programming_project\run_run_run\run_run_run\gamemap.hpp
+1723873993 d:\programming\programming_project\run_run_run\run_run_run\gamemap.hpp
 	<vector>
 	<string>
 	<fstream>
+	<list>
 	"GameObject.hpp"
 	"Surface.hpp"
+	"Player.hpp"
+	"Cherry.hpp"
+	"Spikes.hpp"
+	"ClosedDoor.hpp"
+	"Plate.hpp"
+	"Box.hpp"
+	"Monster.hpp"
+	"Princess.hpp"
+	"Jump.hpp"
+	"Treasure.hpp"
+	"Level.hpp"
 
-1722962308 d:\programming\programming_project\run_run_run\run_run_run\gameobject.hpp
+1723740291 d:\programming\programming_project\run_run_run\run_run_run\gameobject.hpp
 	"Game.hpp"
 
-1722835983 source:d:\programming\programming_project\run_run_run\run_run_run\gameobject.cpp
+1723723972 source:d:\programming\programming_project\run_run_run\run_run_run\gameobject.cpp
 	"GameObject.hpp"
 
-1723146252 source:d:\programming\programming_project\run_run_run\run_run_run\collision.cpp
+1723233690 source:d:\programming\programming_project\run_run_run\run_run_run\collision.cpp
 	"Collision.hpp"
 
-1723146216 d:\programming\programming_project\run_run_run\run_run_run\collision.hpp
+1723192820 d:\programming\programming_project\run_run_run\run_run_run\collision.hpp
 	"GameObject.hpp"
+	<cmath>
+	<algorithm>
 
 1722228867 source:d:\programming\programming_project\run_run_run\run_run_run\vector2.cpp
 	"Vector2.hpp"
 
 1722345679 d:\programming\programming_project\run_run_run\run_run_run\vector2.hpp
 
-1723124045 source:d:\programming\programming_project\run_run_run\run_run_run\surface.cpp
+1723232178 source:d:\programming\programming_project\run_run_run\run_run_run\surface.cpp
 	"Surface.hpp"
 
 1722974045 d:\programming\programming_project\run_run_run\run_run_run\surface.hpp
@@ -482,7 +502,133 @@
 1722974003 source:d:\programming\programming_project\run_run_run\run_run_run\animation.cpp
 	"Animation.hpp"
 
-1722973613 d:\programming\programming_project\run_run_run\run_run_run\animation.hpp
+1723179338 d:\programming\programming_project\run_run_run\run_run_run\animation.hpp
 	<SDL.h>
 	"Game.hpp"
+
+1723875221 d:\programming\programming_project\run_run_run\run_run_run\player.hpp
+	<cmath>
+	<functional>
+	<utility>
+	<list>
+	<string>
+	<SDL.h>
+	"Collision.hpp"
+	"Animation.hpp"
+	"GameObject.hpp"
+
+1723868846 source:d:\programming\programming_project\run_run_run\run_run_run\player.cpp
+	"Player.hpp"
+
+1723877058 source:d:\programming\programming_project\run_run_run\run_run_run\cherry.cpp
+	"Cherry.hpp"
+
+1723208791 d:\programming\programming_project\run_run_run\run_run_run\cherry.hpp
+	"Animation.hpp"
+	"Collision.hpp"
+	"GameObject.hpp"
+
+1723873758 source:d:\programming\programming_project\run_run_run\run_run_run\spikes.cpp
+	"Spikes.hpp"
+	<iostream>
+
+1723871840 d:\programming\programming_project\run_run_run\run_run_run\spikes.hpp
+	"Animation.hpp"
+	"Collision.hpp"
+	"GameObject.hpp"
+	"Player.hpp"
+
+1723217491 d:\programming\programming_project\run_run_run\run_run_run\closeddoor.hpp
+	"GameObject.hpp"
+	"Collision.hpp"
+	"Animation.hpp"
+
+1723877897 source:d:\programming\programming_project\run_run_run\run_run_run\closeddoor.cpp
+	"ClosedDoor.hpp"
+
+1723220451 d:\programming\programming_project\run_run_run\run_run_run\plate.hpp
+	"Animation.hpp"
+	"Collision.hpp"
+	"GameObject.hpp"
+
+1723220888 source:d:\programming\programming_project\run_run_run\run_run_run\plate.cpp
+	"Plate.hpp"
+
+1723435004 d:\programming\programming_project\run_run_run\run_run_run\box.hpp
+	"Animation.hpp"
+	"Collision.hpp"
+	"GameObject.hpp"
+
+1723435651 source:d:\programming\programming_project\run_run_run\run_run_run\box.cpp
+	"Box.hpp"
+
+1723439956 d:\programming\programming_project\run_run_run\run_run_run\monster.hpp
+	"GameObject.hpp"
+	"Collision.hpp"
+	"Animation.hpp"
+
+1723875694 source:d:\programming\programming_project\run_run_run\run_run_run\monster.cpp
+	"Monster.hpp"
+
+1705848875 c:\mingw_dev_lib\sdl2_ttf-2.0.14\x86_64-w64-mingw32\include\sdl2\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1705857752 c:\mingw_dev_lib\sdl2_mixer-2.0.2\x86_64-w64-mingw32\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1723740991 source:d:\programming\programming_project\run_run_run\run_run_run\instruction.cpp
+	"Instruction.hpp"
+
+1723723842 d:\programming\programming_project\run_run_run\run_run_run\instruction.hpp
+	"Game.hpp"
+	"GameObject.hpp"
+
+1723743175 source:d:\programming\programming_project\run_run_run\run_run_run\menu.cpp
+	"Menu.hpp"
+
+1723743175 d:\programming\programming_project\run_run_run\run_run_run\menu.hpp
+	<SDL_ttf.h>
+	"Game.hpp"
+	"GameObject.hpp"
+
+1723814091 d:\programming\programming_project\run_run_run\run_run_run\princess.hpp
+	"Animation.hpp"
+	"Collision.hpp"
+
+1723814091 source:d:\programming\programming_project\run_run_run\run_run_run\princess.cpp
+	"Princess.hpp"
+
+1723815678 d:\programming\programming_project\run_run_run\run_run_run\jump.hpp
+	"Animation.hpp"
+	"Collision.hpp"
+
+1723816234 source:d:\programming\programming_project\run_run_run\run_run_run\jump.cpp
+	"Jump.hpp"
+
+1723869828 d:\programming\programming_project\run_run_run\run_run_run\treasure.hpp
+	"Animation.hpp"
+	"Collision.hpp"
+	<chrono>
+	<thread>
+	<iostream>
+	<windows.h>
+
+1723870227 source:d:\programming\programming_project\run_run_run\run_run_run\treasure.cpp
+	"Treasure.hpp"
+
+1723863258 d:\programming\programming_project\run_run_run\run_run_run\level.hpp
+	<vector>
+	"Collision.hpp"
+	"Animation.hpp"
+
+1723863920 source:d:\programming\programming_project\run_run_run\run_run_run\level.cpp
+	"Level.hpp"
 

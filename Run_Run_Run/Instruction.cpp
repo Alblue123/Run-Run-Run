@@ -30,13 +30,13 @@ void Instruction::init() {
     main->loadIMG("Data//Textures//Background//Background1.png");
     main->setRect({50, 50});
 
-    std::string fontPath = "Data//Fonts//dlxfont.tff";
+    std::string fontPath = "Data//Fonts//dlxfont_.ttf";
     font = TTF_OpenFont(fontPath.c_str(), 30);
     nextState = new GameObject();
     nextState->loadFromRenderedText("PRESS ENTER TO RETURN MENU!", {131, 111, 255});
     nextState->setRect({300, 500});
 
-    fontPath = "Data//Fonts//dlxfont.tff";
+    fontPath = "Data//Fonts//dlxfont_.ttf";
     font = TTF_OpenFont(fontPath.c_str(), 40);
 }
 

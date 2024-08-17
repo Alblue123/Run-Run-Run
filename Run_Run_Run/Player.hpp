@@ -41,7 +41,7 @@ public:
 
 
     bool face_Right = false;
-    float jumHeight = 100.0f;
+    float jumHeight = 200.0f;
     std::pair<int, int> vel = {0, 0};
     bool start = true;
     bool end = false;
