@@ -2,7 +2,7 @@
 
 Player::Player(std::pair<int, int> pos, const bool& faceRightStart)
     : startPos(pos), faceRightStart(faceRightStart) {
-    animation = new Animation("Data//Textures//Player//player_ani.png", {6, 8}, 150);
+    animation = new Animation("Data//Textures//Player//player_ani.png", {6, 8}, 100);
     collision = new Collision(*this);
 
     setSize({50, 50});
@@ -34,11 +34,13 @@ void Player::update(const Uint32& deltaTime) {
     canJump = false;
     pushBox = false;
 
-    if (!start && !end && !teleportation) {
+    if (!start && !end && !attack.isActive && !teleportation) {
         movePos({(int)vel.first * (int)deltaTime / 1000,
                  (int)vel.second * (int)deltaTime / 1000});
         player.setRect(getPos());
     }
+
+    if (start) attack.isActive = false;
 }
 
 void Player::handleMovement(const Uint32& deltaTime) {
@@ -58,6 +60,11 @@ void Player::handleMovement(const Uint32& deltaTime) {
         if (currentKeyStates[SDL_SCANCODE_SPACE] && canJump) {
             vel.second = -sqrt(2.0f * 981.0f * jumHeight);
             canJump = false;
+        }
+         if (currentKeyStates[SDL_SCANCODE_E] && attack.isActive == false){
+            attack.isActive = true;
+            vel = {0, 0};
+            attack.animation->currFrame = {6, 0};
         }
     }
 
@@ -81,7 +88,8 @@ void Player::updateAnimation(const Uint32& deltaTime) {
         updateEnd(deltaTime) ||
         updatePushBox(deltaTime) ||
         updateWinGame(deltaTime) ||
-        updateTeleportation(deltaTime)) {
+        updateTeleportation(deltaTime) ||
+        updateAttack(deltaTime)) {
         return;
     }
     updateMove(deltaTime);
@@ -137,6 +145,21 @@ bool Player::updateTeleportation(const Uint32& deltaTime) {
     return teleportation;
 }
 
+bool Player::updateAttack(const Uint32& deltaTime) {
+    int offset = face_Right ? -50 : 50;
+    attack.setRect({getPos().first + offset, getPos().second + 10});
+
+    if (!attack.isActive) return false;
+
+    if (animation->update(deltaTime, {6, 4}, face_Right)) {
+        attack.isActive = false;
+    }
+
+    attack.animation->update(deltaTime, {4, 0}, face_Right);
+
+    return attack.isActive;
+}
+
 void Player::updateMove(const Uint32& deltaTime) {
     if (vel.first == 0) {
         if (canJump) {
@@ -173,6 +196,8 @@ void Player::limitPos() {
 
 void Player::render() {
     player.render(animation->getFlip(), animation->getRect());
+
+    if (attack.isActive) attack.render();
 }
 
 void Player::reset() {

@@ -11,6 +11,25 @@
 #include "Animation.hpp"
 #include "GameObject.hpp"
 
+struct Attack : public GameObject {
+    Collision* collision = nullptr;
+    Animation* animation;
+    bool isActive = false;
+
+    Attack(){
+        collision = new Collision(*this);
+        animation = new Animation("Data//Textures//Player//strike.png", {4, 1}, 500);
+        setSize({50, 50});
+        loadIMG("Data//Textures//Player//strike.png");
+    }
+
+    ~Attack() {}
+
+    void render() {
+        GameObject::render(animation->getFlip(), animation->getRect());
+    }
+};
+
 class Player: public GameObject {
 public:
     Player(std::pair<int, int> pos, const bool& faceRightStart);
@@ -32,6 +51,7 @@ public:
     bool wingame = false;
 
     Collision* getCollision() { return collision; }
+    Attack attack;
 
     void updateAnimation(const Uint32& deltaTime);
     void applyGravity(const Uint32& deltaTime);
