@@ -74,8 +74,6 @@ void Player::handleMovement(const Uint32& deltaTime) {
         vel = {0, 0};
     }
 
-    std::cout << player.getPos().first << " " << player.getPos().second << std::endl;
-
     timeClickS -= (int)deltaTime;
 }
 

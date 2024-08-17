@@ -50,7 +50,10 @@ private:
     GameObject* nextState;
     GameObject* unpause;
     GameObject* retry;
-    GameObject* winGame;
 
+    GameObject* cherry1;
+    GameObject* cherry2;
+    GameObject* heart1;
+    GameObject* heart2;
 
 };

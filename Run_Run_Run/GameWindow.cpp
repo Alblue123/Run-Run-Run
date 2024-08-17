@@ -74,7 +74,24 @@ void GameWindow::setUp() {
     totalCherry = 0;
 
     mainMap = new GameMap();
-    mainMap->loadMap("Data//Map//Map5.txt");
+    mainMap->loadMap("Data//Map//Map1.txt");
+
+    cherry1 = new GameObject();
+    cherry1->loadIMG("Data//Textures//Background//cherry.png");
+    cherry1->setSize({40, 40});
+    cherry1->setRect({20, 10});
+    cherry2 = new GameObject();
+    cherry2->loadFromRenderedText("x0", {255, 255, 255});
+    cherry2->setRect({70, 20});
+
+    heart1 = new GameObject();
+    heart1->loadIMG("Data//Textures//Background//heart.png");
+    heart1->setSize({40, 40});
+    heart1->setRect({900, 10});
+    heart2 = new GameObject();
+    heart2->loadFromRenderedText("x3", {255, 255, 255});
+    heart2->setRect({940, 15});
+
     background = new GameObject();
     if (background->loadIMG("Data/Textures/Background/Background1.png")) {
         background->setRect({0, 0});
@@ -84,11 +101,11 @@ void GameWindow::setUp() {
 
     loose = new GameObject();
     loose->loadFromRenderedText("YOU LOSE!!!", {255, 0, 0});
-    loose->setRect({410, 100});
+    loose->setRect({300, 100});
 
     win = new GameObject();
     win->loadFromRenderedText("YOU WON!!!", {124, 252, 0});
-    win->setRect({425, 100});
+    win->setRect({300, 100});
 
     gPause = new GameObject();
     gPause->loadFromRenderedText("GAME PAUSED!!!", {255, 255, 255});
@@ -99,7 +116,7 @@ void GameWindow::setUp() {
 
     nextState = new GameObject();
     nextState->loadFromRenderedText("PRESS ENTER TO RETURN MENU!", {131, 111, 255});
-    nextState->setRect({200, 300});
+    nextState->setRect({250, 300});
 
     unpause = new GameObject();
     unpause->loadFromRenderedText("PRESS ESC TO CONTINUE OR ENTER TO RETURN MENU!", {131, 111, 255});
@@ -107,15 +124,19 @@ void GameWindow::setUp() {
 
     retry = new GameObject();
     retry->loadFromRenderedText("LET'S TRY AGAIN!", {255, 255, 255});
-    retry->setRect({400, 200});
+    retry->setRect({350, 200});
 
     fontPath = "Data//Fonts//dlxfont_.ttf";
-	font = TTF_OpenFont(fontPath.c_str(), 40);
+	font = TTF_OpenFont(fontPath.c_str(), 30);
 
 }
 
 void GameWindow::render() {
     mainMap->render();
+    cherry1->render(false);
+    cherry2->render(false);
+    heart1->render(false);
+    heart2->render(false);
 }
 
 void GameWindow::update(const Uint32& deltaTime) {
@@ -131,7 +152,14 @@ void GameWindow::update(const Uint32& deltaTime) {
             mainMap->loadMap(path);
         }
     }
+
     mainMap->update(deltaTime);
+
+    if (_totalHearts <= 0) LOOSE = true;
+    else {
+        heart2->loadFromRenderedText("x" + std::to_string(_totalHearts), {255, 255, 255});
+    }
+    cherry2->loadFromRenderedText("x" + std::to_string(totalCherry), {255, 255, 255});
 }
 
 void GameWindow::renderGameOver() {
@@ -148,22 +176,8 @@ void GameWindow::renderPause() {
 }
 
 void GameWindow::renderWin() {
-    std::string fontPath = "Data//Fonts//dlxfont_.ttf";
-	font = TTF_OpenFont(fontPath.c_str(), 30);
-
-
-    win = new GameObject();
-    std::string winstring = "You have surpassed ";
-    winstring += " players!";
-    winGame->loadFromRenderedText(winstring, {255, 255, 255});
-    winGame->setRect({250, 200});
-
-    fontPath = "Data//Fonts//dlxfont_.ttf";
-	font = TTF_OpenFont(fontPath.c_str(), 40);
-
     background->render(false);
     win->render(false);
-    winGame->render(false);
     nextState->render(false);
 }
 
