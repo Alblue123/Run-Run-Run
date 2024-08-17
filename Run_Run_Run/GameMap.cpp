@@ -210,6 +210,7 @@ void GameMap::renderLevel() {
 
 void GameMap::update(const Uint32& deltaTime) {
     setCollisionSurfacePlayer(surface, player, width, height);
+    setCollisionSurfaceSpikes(surface, spikes, width, height);
     setCollisionCherryPlayer(cherries, player);
     SetCollisionClosedDoorPlayer(closedDoor, player);
     SetCollisionPlatePlayer(plates, player, deltaTime);
@@ -374,6 +375,7 @@ void GameMap::setCollisionSurfaceSpikes(Surface** surface, std::list<Spikes*>& s
                 continue;
             }
 
+
             for (auto& spike : spikes) {
                 int collisionResult = surfaceCollider->checkCollision(spike->getCollision(), 1.0f);
                 if (collisionResult == collision::top || collisionResult == collision::_top) {
@@ -468,18 +470,26 @@ void GameMap::SetCollisionPlayerBox(std::list<Box*> boxes, Player* player) {
 }
 
 void GameMap::SetCollisionMonsterPlayer(std::list<Monster*> monsters, Player* player) {
-     if (!player) {
-        return;
-    }
+     if (!player) return;
+
     for (auto& monster : monsters) {
-        if (!player->end && monster->checkDeath == 0
-            && monster->getCollision()->checkCollision(player->getCollision()) == collision::top) {
+        if (player->attack.isActive && monster->checkDeath == 0) {
+            int collisionResult = player->attack.collision->checkCollision(monster->getCollision());
+            if (collisionResult != 0 && collisionResult != collision::_top && collisionResult != collision::_down) {
+                monster->checkDeath++;
+            }
+        }
+
+        else if (!player->end && monster->checkDeath == 0 &&
+                 monster->getCollision()->checkCollision(player->getCollision()) == collision::top) {
             monster->checkDeath++;
         }
+
         else if (monster->checkDeath == 0) {
-            int checkResult = monster->getCollision()->checkCollision(player->getCollision());
-            if (checkResult == collision::right || checkResult == collision::left) {
-                player->end = true;
+            int collisionResult = monster->getCollision()->checkCollision(player->getCollision());
+            if (collisionResult == collision::right || collisionResult == collision::left) {
+                player->end = false;
+                player->attack.isActive = false;
             }
         }
     }
