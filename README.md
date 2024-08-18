@@ -55,7 +55,7 @@ Video giới thiệu về game:
 |    ![](Run_Run_Run/Data/ReviewImage/closed_door.png)  |     Cửa khóa  | 
 |    ![](Run_Run_Run/Data/ReviewImage/fairy.png)  |     Nàng công chúa bạn phải giải cứu | 
 |    ![](Run_Run_Run/Data/ReviewImage/spikes.png)  |     Bẫy gai | 
-|    ![](Run_Run_Run/Data/ReviewImage/mushroom.png)  |     Nấm giúp người chơi nhảy cao hơn | 
+|    ![](Run_Run_Run/Data/ReviewImage/jump.png)  |     Nấm giúp người chơi nhảy cao hơn | 
 
 
 ## **Một vài hình ảnh về Game**
