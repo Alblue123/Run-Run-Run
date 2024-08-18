@@ -2,7 +2,7 @@
 
 #include <SDL.h>
 
-#include "Game.hpp"
+#include "../Game.hpp"
 
 class Animation
 {

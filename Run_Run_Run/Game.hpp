@@ -13,8 +13,6 @@
 #include <algorithm>
 #include <ctime>
 
-#include "Timer.hpp"
-
 //Screen
 const int FPS = 60;
 const int SCREEN_WIDTH = 1024;

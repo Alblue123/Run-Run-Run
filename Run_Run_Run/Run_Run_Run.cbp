@@ -128,6 +128,10 @@
 		<Unit filename="GameWindow.hpp" />
 		<Unit filename="Instruction.cpp" />
 		<Unit filename="Instruction.hpp" />
+		<Unit filename="Jump.cpp" />
+		<Unit filename="Jump.hpp" />
+		<Unit filename="Level.cpp" />
+		<Unit filename="Level.hpp" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.hpp" />
 		<Unit filename="Monster.cpp" />
@@ -136,12 +140,14 @@
 		<Unit filename="Plate.hpp" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.hpp" />
+		<Unit filename="Princess.cpp" />
+		<Unit filename="Princess.hpp" />
 		<Unit filename="Spikes.cpp" />
 		<Unit filename="Spikes.hpp" />
 		<Unit filename="Surface.cpp" />
 		<Unit filename="Surface.hpp" />
-		<Unit filename="Timer.cpp" />
-		<Unit filename="Timer.hpp" />
+		<Unit filename="Treasure.cpp" />
+		<Unit filename="Treasure.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

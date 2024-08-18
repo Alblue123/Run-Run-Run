@@ -2,8 +2,8 @@
 
 #include <SDL_ttf.h>
 
-#include "Game.hpp"
-#include "GameObject.hpp"
+#include "../Game.hpp"
+#include "../Texture/GameObject.hpp"
 
 class Menu
 {

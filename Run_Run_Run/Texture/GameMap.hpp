@@ -18,6 +18,7 @@
 #include "Jump.hpp"
 #include "Treasure.hpp"
 #include "Level.hpp"
+
 class GameMap
 {
 public:

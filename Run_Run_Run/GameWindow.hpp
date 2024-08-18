@@ -12,10 +12,10 @@
 
 
 #include "Game.hpp"
-#include "GameObject.hpp"
-#include "GameMap.hpp"
-#include "Instruction.hpp"
-#include "Menu.hpp"
+#include "Texture/GameObject.hpp"
+#include "Texture/GameMap.hpp"
+#include "MenuState/Instruction.hpp"
+#include "MenuState/Menu.hpp"
 
 class GameWindow
 {
