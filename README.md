@@ -26,10 +26,9 @@ Video giới thiệu về game:
 
 |   Quái  | Máu | 
 |---------|----------|
-|    ![](Run_Run_Run/Data/Textures/Monster/skull_wolf_display.png) |     1    | 
-|    ![](\Run_Run_Run\Data\Textures\Monster\slime_display.png)     |     1    | 
-|    ![](\Run_Run_Run\Data\Textures\Monster\mushroom_display.png)  |     1    | 
-
+| ![](Run_Run_Run/Data/Textures/Monster/skull_wolf_display.png) | 1 | 
+| ![](Run_Run_Run/Data/Textures/Monster/slime_display.png) | 1 | 
+| ![](Run_Run_Run/Data/Textures/Monster/mushroom_display.png) | 1 | 
 
 
 ## **Cách điều khiển**
@@ -47,57 +46,57 @@ Video giới thiệu về game:
 
 |   Vật phẩm  | Mô tả | 
 |---------|----------|
-|    ![](Run_Run_Run\Data\Textures\Treasure\treasure.png) |     Hòm chứa quả cherry    | 
-|    ![](\Run_Run_Run\Data\Textures\Background\cherry.png)     |     Quả cherry tăng điểm    | 
-|    ![](\Run_Run_Run\Data\Textures\Level\lever_left.png)  |     Cần gạt để mở thanh chắn    | 
-|    ![](\Run_Run_Run\Data\Textures\Level\wood_closed.png)  |     Thanh chắn cản người chơi   | 
-|    ![](\Run_Run_Run\Data\Textures\Box\box.png)  |     Hộp để giải mã   | 
-|    ![](\Run_Run_Run\Data\Textures\Plate\buttom_pressed.png)  |     Nút ấn để mở cửa  | 
-|    ![](\Run_Run_Run\Data\ReviewImage\closed_door.png)  |     Cửa khóa  | 
-|    ![](\Run_Run_Run\Data\ReviewImage\fairy.png)  |     Nàng công chúa bạn phải giải cứu | 
-|    ![](\Run_Run_Run\Data\ReviewImage\spikes.png)  |     Bẫy gai | 
-|    ![](\Run_Run_Run\Data\ReviewImage\mushroom.png)  |     Nấm giúp người chơi nhảy cao hơn | 
+|    ![](Run_Run_Run/Data/Textures/Treasure/treasure.png) |     Hòm chứa quả cherry    | 
+|    ![](Run_Run_Run/Data/Textures/Background/cherry.png)     |     Quả cherry tăng điểm    | 
+|    ![](Run_Run_Run/Data/Textures/Level/lever_left.png)  |     Cần gạt để mở thanh chắn    | 
+|    ![](Run_Run_Run/Data/Textures/Level/wood_closed.png)  |     Thanh chắn cản người chơi   | 
+|    ![](Run_Run_Run/Data/Textures/Box/box.png)  |     Hộp để giải mã   | 
+|    ![](Run_Run_Run/Data/Textures/Plate/buttom_pressed.png)  |     Nút ấn để mở cửa  | 
+|    ![](Run_Run_Run/Data/ReviewImage/closed_door.png)  |     Cửa khóa  | 
+|    ![](Run_Run_Run/Data/ReviewImage/fairy.png)  |     Nàng công chúa bạn phải giải cứu | 
+|    ![](Run_Run_Run/Data/ReviewImage/spikes.png)  |     Bẫy gai | 
+|    ![](Run_Run_Run/Data/ReviewImage/mushroom.png)  |     Nấm giúp người chơi nhảy cao hơn | 
 
 
 ## **Một vài hình ảnh về Game**
 - *Menu*
-![](\Run_Run_Run\Data\ReviewImage\menu.png)
+![](Run_Run_Run/Data/ReviewImage/menu.png)
 
 - *Instruction*
 
-![](\Run_Run_Run\Data\ReviewImage\instruction.png)
+![](Run_Run_Run/Data\ReviewImage/instruction.png)
 
 - *Map đầu tiên*
 
-![](\Run_Run_Run\Data\ReviewImage\map1.png)
+![](Run_Run_Run/Data/ReviewImage/map1.png)
 
 - *Map thứ hai*
 
-![](\Run_Run_Run\Data\ReviewImage\map2.png)
+![](Run_Run_Run/Data/ReviewImage/map2.png)
 
 - *Map thứ ba*
 
-![](\Run_Run_Run\Data\ReviewImage\map3.png)
+![](Run_Run_Run/Data/ReviewImage/map3.png)
 
 - *Map thứ bốn*
 
-![](\Run_Run_Run\Data\ReviewImage\map4.png)
+![](Run_Run_Run/Data/ReviewImage/map4.png)
 
 - *Map thứ năm*
 
-![](\Run_Run_Run\Data\ReviewImage\map5.png)
+![](Run_Run_Run/Data/ReviewImage/map5.png)
 
 - *Pause*
 
-![](\Run_Run_Run\Data\ReviewImage\pause.png)
+![](Run_Run_Run/Data/ReviewImage/pause.png)
 
 - *Thua cuộc*
 
-![](\Run_Run_Run\Data\ReviewImage\lost.png)
+![](Run_Run_Run/Data/ReviewImage/lost.png)
 
 - *Chiến thắng*
 
-![](\Run_Run_Run\Data\ReviewImage\win.png)
+![](Run_Run_Run/Data/ReviewImage/win.png)
 
 ## **Cấu trúc của game**
 
