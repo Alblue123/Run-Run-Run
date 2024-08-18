@@ -162,11 +162,11 @@ Video giới thiệu về game: https://www.youtube.com/watch?v=VWDgkFck9i4
                       
 ## **Cách cài đặt**
 
-- Bước 1: Download file về máy
+## a. Cách 1: Không bao gồm code.
 
-- Bước 2: Giải nén
-
-- Bước 3: Tìm file Run_Run_Run.exe, mở file ra và tận hưởng trò chơi.
+Tải game (được nén thành .zip) tại link
+sau: https://github.com/Alblue123/Run-Run-Run/tags<br/>
+Giải nén game vào một thư mục và bật Run_Run_Run.exe lên và chơi.<br/>
 
 
 ## **Kỹ thuật sử dụng**
