@@ -164,10 +164,14 @@ Video giới thiệu về game: https://www.youtube.com/watch?v=VWDgkFck9i4
 
 ## a. Cách 1: Không bao gồm code.
 
-Tải game (được nén thành .zip) tại link
-sau: https://github.com/Alblue123/Run-Run-Run/tags<br/>
-Giải nén game vào một thư mục và bật Run_Run_Run.exe lên và chơi.<br/>
+- Tải game (được nén thành .zip) tại link sau: https://github.com/Alblue123/Run-Run-Run/releases/tag/v.2.2
+- Giải nén game vào một thư mục và bật Run_Run_Run.exe lên và chơi.
 
+## b. Cách 2: Bao gồm code và có thể biên dịch.
+
+- Clone project từ trên github
+- Làm theo hướng dẫn của lazyfoo để cài đặt SDL2: https://lazyfoo.net/tutorials/SDL/06_extension_libraries_and_loading_other_image_formats/index.php
+- Tải về một trình biên dịch như CodeBlock và chạy
 
 ## **Kỹ thuật sử dụng**
 
