@@ -398,7 +398,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1723736691 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
+1723939347 d:\programming\programming_project\run_run_run\run_run_run\game.hpp
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
@@ -413,7 +413,7 @@
 	<ctime>
 	"Timer.hpp"
 
-1723891066 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
+1723939985 source:d:\programming\programming_project\run_run_run\run_run_run\game.cpp
 	"Game.hpp"
 	"GameWindow.hpp"
 
@@ -445,12 +445,12 @@
 	"Instruction.hpp"
 	"Menu.hpp"
 
-1723931918 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
+1723939437 source:d:\programming\programming_project\run_run_run\run_run_run\gamewindow.cpp
 	"GameWindow.hpp"
 
 1722224259 source:d:\programming\programming_project\run_run_run\run_run_run\background.cpp
 
-1723933469 source:d:\programming\programming_project\run_run_run\run_run_run\gamemap.cpp
+1723939985 source:d:\programming\programming_project\run_run_run\run_run_run\gamemap.cpp
 	"GameMap.hpp"
 
 1723873993 d:\programming\programming_project\run_run_run\run_run_run\gamemap.hpp
@@ -517,7 +517,7 @@
 	"Animation.hpp"
 	"GameObject.hpp"
 
-1723937075 source:d:\programming\programming_project\run_run_run\run_run_run\player.cpp
+1723939985 source:d:\programming\programming_project\run_run_run\run_run_run\player.cpp
 	"Player.hpp"
 
 1723877058 source:d:\programming\programming_project\run_run_run\run_run_run\cherry.cpp
@@ -592,7 +592,7 @@
 	"GameObject.hpp"
 	<vector>
 
-1723887096 source:d:\programming\programming_project\run_run_run\run_run_run\menu.cpp
+1723939468 source:d:\programming\programming_project\run_run_run\run_run_run\menu.cpp
 	"Menu.hpp"
 
 1723743175 d:\programming\programming_project\run_run_run\run_run_run\menu.hpp

@@ -35,7 +35,7 @@ void Menu::init() {
     font = TTF_OpenFont(fontPath.c_str(), 50);
     gName = new GameObject();
     gName->loadFromRenderedText("RUN RUN RUN", {255, 255, 255});
-    gName->setRect({300, 100});
+    gName->setRect({250, 100});
 
     fontPath = "Data//Fonts//dlxfont_.ttf";
     font = TTF_OpenFont(fontPath.c_str(), 40);

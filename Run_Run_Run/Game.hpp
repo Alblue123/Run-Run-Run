@@ -38,4 +38,17 @@ extern int _totalHearts;
 
 extern TTF_Font* font;
 
+extern Mix_Chunk* eatCherry;
+extern Mix_Chunk* jump;
+extern Mix_Chunk* slash;
+extern Mix_Chunk* mushroom;
+extern Mix_Chunk* push;
+extern Mix_Chunk* winG;
+extern Mix_Chunk* lost;
+extern Mix_Chunk* death;
+extern Mix_Chunk* teleport;
+
+extern Mix_Music* game;
+extern Mix_Music* menuG;
+
 void start();

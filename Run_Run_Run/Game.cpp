@@ -18,6 +18,19 @@ int _totalHearts = 0;
 
 TTF_Font* font;
 
+Mix_Chunk* eatCherry;
+Mix_Chunk* jump;
+Mix_Chunk* slash;
+Mix_Chunk* mushroom;
+Mix_Chunk* push;
+Mix_Chunk* winG;
+Mix_Chunk* lost;
+Mix_Chunk* death;
+Mix_Chunk* teleport;
+
+Mix_Music* game;
+Mix_Music* menuG;
+
 
 bool HandleEvents(bool& quitGame, int& currState, int& status);
 void renderGame();
@@ -95,6 +108,7 @@ bool HandleEvents(bool& quitGame, int& currState, int& status) {
 
 int renderGame(int& currState) {
     if (gWin->isWinning()) {
+        Mix_HaltChannel(-1);
         gWin->renderWin();
         if (SDL_GetKeyboardState(NULL)[SDL_SCANCODE_RETURN]) {
             return MENU;
@@ -120,7 +134,7 @@ int play() {
     Uint32 start_time = 0, current_time, deltaTime;
     int status = 0;
     gWin->setUp();
-
+    Mix_PlayMusic(game, -1);
     while (!quit) {
         Uint32 frameStart = SDL_GetTicks();
         SDL_RenderClear(renderer);
@@ -163,6 +177,7 @@ int play() {
 int main() {
     menu = new Menu();
     menu->init();
+    Mix_PlayMusic(menuG, -1);
 
     Uint32 start_time = 0, current_time, deltaTime;
 	bool quit = false;

@@ -393,6 +393,7 @@ void GameMap::setCollisionCherryPlayer(std::vector<Cherry*>& cherries, Player* p
             if (cherry->eatCherry == 0) {
                 cherry->eatCherry = 1;
                 totalCherry++;
+                Mix_PlayChannel(-1, eatCherry, 0);
             }
         }
     }
@@ -548,6 +549,8 @@ void GameMap::SetCollisionJumpPlayer(std::list<Jump*> jumps, Player* player) {
 
             player->vel.second = -sqrt(2.0f * 981.0f * player->jumHeight * 1.2f);
             player->canJump = false;
+
+            Mix_PlayChannel(-1, mushroom, 0);
         }
     }
 }

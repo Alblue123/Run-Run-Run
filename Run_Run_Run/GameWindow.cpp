@@ -63,8 +63,27 @@ bool GameWindow::init() {
             if (font ==  nullptr) {
                 std::cerr << "Failed to load font! TTF_Error: " << TTF_GetError() << std::endl;
             }
+
+            if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048) < 0){
+                std::cerr << "Failed to load font! MIX_Error: " << Mix_GetError() << std::endl;
+            }
         }
     }
+
+    eatCherry = Mix_LoadWAV("Data//Sounds//eat.wav");
+    mushroom = Mix_LoadWAV("Data//Sounds//mushroom.wav");
+    slash = Mix_LoadWAV("Data//Sounds//slash.wav");
+    jump = Mix_LoadWAV("Data//Sounds//jump.wav");
+    teleport = Mix_LoadWAV("Data//Sounds//teleport.wav");
+    winG = Mix_LoadWAV("Data//Sounds//win.wav");
+    lost = Mix_LoadWAV("Data//Sounds//lost.wav");
+    death = Mix_LoadWAV("Data//Sounds//death.wav");
+    push = Mix_LoadWAV("Data//Sounds//push.wav");
+
+    game = Mix_LoadMUS("Data//Sounds//game.wav");
+    menuG = Mix_LoadMUS("Data//Sounds//menu.wav");
+
+
     return isRunning;
 }
 
@@ -163,6 +182,7 @@ void GameWindow::update(const Uint32& deltaTime) {
 }
 
 void GameWindow::renderGameOver() {
+    Mix_PlayChannel(-1, lost, 0);
     background->render(false);
     loose->render(false);
     retry->render(false);
@@ -176,6 +196,7 @@ void GameWindow::renderPause() {
 }
 
 void GameWindow::renderWin() {
+    Mix_PlayChannel(-1, winG, 0);
     background->render(false);
     win->render(false);
     nextState->render(false);

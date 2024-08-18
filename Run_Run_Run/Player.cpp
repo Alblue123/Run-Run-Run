@@ -58,10 +58,12 @@ void Player::handleMovement(const Uint32& deltaTime) {
         if (currentKeyStates[SDL_SCANCODE_D]) vel.first += speed;
         if (currentKeyStates[SDL_SCANCODE_A]) vel.first -= speed;
         if (currentKeyStates[SDL_SCANCODE_SPACE] && canJump) {
+            Mix_PlayChannel(-1, jump, 0);
             vel.second = -sqrt(2.0f * 981.0f * jumHeight);
             canJump = false;
         }
          if (currentKeyStates[SDL_SCANCODE_E] && attack.isActive == false){
+            Mix_PlayChannel(-1, slash, 0);
             attack.isActive = true;
             vel = {0, 0};
             attack.animation->currFrame = {6, 0};
@@ -69,6 +71,7 @@ void Player::handleMovement(const Uint32& deltaTime) {
     }
 
     if (currentKeyStates[SDL_SCANCODE_F] && teleportation == 0 && timeClickS <= 0) {
+        Mix_PlayChannel(-1, teleport, 0);
         teleportation = 8;
         timeClickS = 1000;
         vel = {0, 0};
@@ -114,6 +117,7 @@ bool Player::updateStart(const Uint32& deltaTime) {
 
 bool Player::updateEnd(const Uint32& deltaTime) {
     if (!end) return false;
+    Mix_PlayChannel(-1, death, 0);
 
     if (animation->update(deltaTime, {6, 7}, face_Right)) delPlayer = true;
     if (delPlayer) reset();
@@ -130,6 +134,7 @@ bool Player::updateWinGame(const Uint32& deltaTime) {
 
 bool Player::updatePushBox(const Uint32& deltaTime) {
     if (pushBox && vel.first != 0) {
+        Mix_PlayChannel(-1, push, 0);
         animation->update(deltaTime, {4, 6}, face_Right);
         return true;
     }
