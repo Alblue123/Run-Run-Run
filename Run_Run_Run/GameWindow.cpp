@@ -162,7 +162,7 @@ void GameWindow::update(const Uint32& deltaTime) {
     if (LOOSE) return;
     if (mainMap->win && mainMap->getPlayer()->delPlayer) {
         curMap++;
-        if (curMap > 1) {
+        if (curMap > 5) {
             WIN = true;
         } else {
             delete mainMap;

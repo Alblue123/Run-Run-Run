@@ -14,7 +14,7 @@
   
   *Công chúa của bạn đã bị gã phù thủy xấu xa bắt cóc, bạn phải đến khu rừng nguyên sinh The Origin để trải qua các thử thách và cứu công chúa.*
 
-Video giới thiệu về game: 
+Video giới thiệu về game: https://www.youtube.com/watch?v=VWDgkFck9i4
 
 ## ***Cách thức chơi game***
   *Bạn phải tránh những cái bẫy nguy hiểm chết người, đồng thời tìm cách giải đố để qua được màn kế tiếp.* 
@@ -189,13 +189,15 @@ Video giới thiệu về game:
 ## **Nguồn tham khảo**
 
 - Sử dụng các bài giảng có sẵn tại Lazyfoo:  https://lazyfoo.net/tutorials/SDL/index.php
-- Tham khảo các nguồn có sẵn trên youtube như như [Let's make Game](https://www.youtube.com/@CarlBirch "Let's make Game"), [Maydayscode](https://www.youtube.com/@Madsycode "Maydayscode") và nhiều github reoi khác
+- Tham khảo các nguồn có sẵn trên youtube như như [Let's make Game](https://www.youtube.com/@CarlBirch "Let's make Game"), [Maydayscode](https://www.youtube.com/@Madsycode "Maydayscode") và nhiều github repo khác
 - Sử dụng đồ họa miễn phí tại itch.io và âm thanh tại mixkit: https://mixkit.co/free-sound-effects/
 
 ## **Kết luận**
 
 ### **Điều hạn chế**
 - Do hạn chế về mặt thời gian nên xử lý đồ họa vẫn chưa được mượt mà, nhiều lúc dẫn đến nhân vật bị mất mạng tại khoảng cận biên của bẫy hay quái
+
+- Khi vượt quá phạm vi màn hình, nhân vật sẽ bị lỗi.
 
 - Nhiều phần code chưa thực hiện được quy tắc SOLID. 
 
