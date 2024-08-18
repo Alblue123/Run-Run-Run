@@ -26,7 +26,7 @@ Video giới thiệu về game:
 
 |   Quái  | Máu | 
 |---------|----------|
-|    ![](Run_Run_Run\Data\Textures\Monster\skull_wolf_display.png) |     1    | 
+|    ![](Run_Run_Run/Data/Textures/Monster/skull_wolf_display.png) |     1    | 
 |    ![](\Run_Run_Run\Data\Textures\Monster\slime_display.png)     |     1    | 
 |    ![](\Run_Run_Run\Data\Textures\Monster\mushroom_display.png)  |     1    | 
 
