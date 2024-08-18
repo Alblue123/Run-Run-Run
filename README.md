@@ -197,7 +197,6 @@ Video giới thiệu về game:
 
 ## **Kết luận**
 
-
 ### **Điều hạn chế**
 
 - Code chưa được sạch sẽ, gọn gàng.
@@ -225,7 +224,6 @@ Video giới thiệu về game:
 - Tăng thêm độ khó cho game bằng cách mỗi khi người chơi tăng cấp thì quái cũng sẽ thay đổi.
   
 
-## **Mức điểm mong muốn: 9.5++/10**
 
 
 
