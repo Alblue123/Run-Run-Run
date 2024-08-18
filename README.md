@@ -64,7 +64,7 @@ Video giới thiệu về game:
 
 - *Instruction*
 
-![](Run_Run_Run/Data\ReviewImage/instruction.png)
+![](Run_Run_Run/Data/ReviewImage/instruction.png)
 
 - *Map đầu tiên*
 
@@ -173,58 +173,44 @@ Video giới thiệu về game:
 
  - Sử dụng được một sổ tính năng trong SDL2.0 : xử lí ảnh, va chạm, chuyển động, hiển thị chữ, âm thanh, thời gian, thao tác chuột, bàn phím,...
 
- - Sử dụng nhiều class, vector, mảng, biến, tách file, nạp chồng toán tử,...
+ - Sử dụng nhiều class, vector, mảng, biến, tách file, kế thừa, ...
 
  - Tạo ra các đối tượng nhân vật, quái vật, các bút bấm,..
 
- - Sử dụng photoshop để chỉnh sửa một vài ảnh theo mong muốn.
+ - Tạo ra các đối tượng đồ họa xử lý va chạm của nhau.
+
+ - Sử dụng phần mềm aesprite để xử lý đồ họa.
 
  - Tự tạo ra menu, nút bằng cách hiển thị khung và chữ chèn lên.
 
  - Dùng các kiến thức toán học, vật lí để tinh toán về thời gian hồi chiêu, vận tốc, hướng di chuyển của quái đi theo nhân vật,...
 
- - Tách các file, dùng Máy trạng thái,...
-
 
 ## **Nguồn tham khảo**
 
-- Tham khảo chủ yếu trên lazyfoo về các cách sử dụng các hàm trong SDL2.0
-
-- Học trên youtube: Let's Make Game, Mike Shah,... về cách dùng máy trạng thái và cách vẽ và sử dụng map.
-
-- Lấy source ảnh và âm thanh, font chữ ở trên itch.io và 
+- Sử dụng các bài giảng có sẵn tại Lazyfoo:  https://lazyfoo.net/tutorials/SDL/index.php
+- Tham khảo các nguồn có sẵn trên youtube như như [Let's make Game](https://www.youtube.com/@CarlBirch "Let's make Game"), [Maydayscode](https://www.youtube.com/@Madsycode "Maydayscode") và nhiều github reoi khác
+- Sử dụng đồ họa miễn phí tại itch.io và âm thanh tại mixkit: https://mixkit.co/free-sound-effects/
 
 ## **Kết luận**
 
 ### **Điều hạn chế**
+- Do hạn chế về mặt thời gian nên xử lý đồ họa vẫn chưa được mượt mà, nhiều lúc dẫn đến nhân vật bị mất mạng tại khoảng cận biên của bẫy hay quái
 
-- Code chưa được sạch sẽ, gọn gàng.
+- Nhiều phần code chưa thực hiện được quy tắc SOLID. 
 
-- Khi chia file còn chưa tối ưu, chưa chia thành từng folder.
-
-- Thiếu thời gian để hoàn thiện game nhiều hơn, mới chỉ thể hiện được một phần game mong muốn.
-
-- Do tự xây dựng nên chưa thể quản lí tốt dẫn đến một vài bug nên khi muốn update một cái gì mới vào thì sẽ xuất hiện một só lỗi chính vì thế gây khó khăn khi update một tính năng hay ho nào đó(Có lẽ là điều hạn chế lớn nhất đối với em).
+- Các hàm nên được phân chia nữa ra để cho thực hiện đơn nhất tính năng và tránh dài.
 
 ### **Hướng phát triển game**
+- Tiếp tục cải thiện xử lý đồ họa cho mượt mà hơn. 
 
-- Cập nhật tính năng nhân vật đa dạng hơn để người chơi lựa chọn.
+- Thêm một con boss ở màn thứ 6 coi như kết thúc game, đánh bại quái vật và giải cứu công chúa.
 
-- Nhiều loại quái thú hơn.
+- Thêm máu cho quái, đa dạng chủng loại hơn, cũng như thêm đồ rớt ra.
 
-- Tạo ra nhiều màn với số lượng quái thú nhất định để người chơi vượt qua.
+- Thêm thống kê lại thời gian, vật phẩm khi thắng hay thua game.
 
-- Có thể tạo ra chế độ Co-op để có thể chơi cùng bạn bè.
-
-- Thêm tên của người chơi và bảng xếp hạng
-
-- Tạo ra nhiều chiêu thức đa dạng phong phú.
-
-- Tăng thêm độ khó cho game bằng cách mỗi khi người chơi tăng cấp thì quái cũng sẽ thay đổi.
-  
-
-
-
+- Thêm hardmode tăng phần thử thách.
 
 
 
